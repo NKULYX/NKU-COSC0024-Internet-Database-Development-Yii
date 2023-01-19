@@ -257,4 +257,16 @@ class SiteController extends Controller
             'model' => $model
         ]);
     }
+
+    public function actionShowNewsList()
+    {
+        $this->layout = 'news_layout';
+        return $this->render('newsList');
+    }
+
+    public function actionShowNewsContent()
+    {
+        $this->layout = 'news_layout';
+        return $this->render('newsContent');
+    }
 }
