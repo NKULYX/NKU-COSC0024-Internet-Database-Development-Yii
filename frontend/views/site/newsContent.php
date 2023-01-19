@@ -12,7 +12,7 @@ $this->title = 'My Yii Application';
     <article class="entry entry-single">
 
         <div class="entry-img">
-            <img src="../../common/static/images/blog-1.jpg" alt="" class="img-fluid">
+            <img src="../../common/static/images/news/blog-1.jpg" alt="" class="img-fluid">
         </div>
 
         <h2 class="entry-title">
@@ -105,7 +105,7 @@ $this->title = 'My Yii Application';
 
         <div id="comment-1" class="comment">
             <div class="d-flex">
-                <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div>
+                <div class="comment-img"><img src="../../common/static/images/users/default1.png" alt=""></div>
                 <div>
                     <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
                     <time datetime="2020-01-01">01 Jan, 2020</time>
