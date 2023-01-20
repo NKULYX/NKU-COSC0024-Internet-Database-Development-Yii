@@ -1,7 +1,9 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $model News */
 
+use common\models\News;
 use yii\helpers\Html;
 use \common\models\NewsSource;
 
@@ -9,31 +11,27 @@ $this->title = 'My Yii Application';
 ?>
 
 <div class="col-lg-8 entries">
-
     <article class="entry entry-single">
-
         <div class="entry-img">
-            <img src="../../common/static/images/news/blog-1.jpg" alt="" class="img-fluid">
+            <img src="<?="../../common/static/images/news/news-" . $model->news_id . ".jpg"?>" alt="" class="img-fluid">
         </div>
-
         <h2 class="entry-title">
-            <a>Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
+            <a><?=$model->news_title?></a>
         </h2>
-
         <div class="entry-meta">
             <ul>
                 <li class="d-flex align-items-center">
                     <i class="bi bi-person"></i>
-<!--                    <a>John Doe</a>-->
-                    <a>
-                        <?php
-                            $source = NewsSource::find()->where(['source_name' => 'CNN'])->one();
-                            echo $source->source_name;
-                        ?>
-                    </a>
+                    <a><?=$model->news_source?></a>
                 </li>
-                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a>Jan 1, 2020</a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a>12 Comments</a></li>
+                <li class="d-flex align-items-center">
+                    <i class="bi bi-clock"></i>
+                    <a><?=$model->news_date?></a>
+                </li>
+                <li class="d-flex align-items-center">
+                    <i class="bi bi-chat-dots"></i>
+                    <a><?=$model->getNewsCommentNum()?></a>
+                </li>
             </ul>
         </div>
 

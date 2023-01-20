@@ -270,6 +270,10 @@ class SiteController extends Controller
     public function actionShowNewsContent()
     {
         $this->layout = 'news_layout';
-        return $this->render('newsContent');
+        $news_id = (int)Yii::$app->request->get()['news_id'];
+        $model = News::find()->where(['news_id' => $news_id])->one();
+        return $this->render('newsContent',[
+            'model' => $model
+        ]);
     }
 }

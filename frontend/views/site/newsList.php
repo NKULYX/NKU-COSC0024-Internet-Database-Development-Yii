@@ -31,17 +31,16 @@ $this->title = 'My Yii Application';
                     </li>
                     <li class="d-flex align-items-center">
                         <i class="bi bi-chat-dots"></i>
-                        <a>12 Comments</a>
+                        <a><?=$news->getNewsCommentNum()?></a>
                     </li>
                 </ul>
             </div>
             <div class="entry-content">
                 <p><?=$news->news_abstract?></p>
                 <div class="read-more">
-                    <?= Html::a('Read More', ['site/show-news-content']) ?>
+                    <?= Html::a('Read More', ['site/show-news-content','news_id' => $news->news_id]) ?>
                 </div>
             </div>
-
         </article><!-- End blog entry -->
     <?php endfor;?>
 

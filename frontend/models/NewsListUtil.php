@@ -16,9 +16,6 @@ class NewsListUtil
     {
         self::$news_num = count(News::find()->all(), COUNT_RECURSIVE);
         self::$news_page_num = self::$news_num / 4;
-//        if(self::$news_num % 4 !== 0):
-//            self::$news_page_num++;
-//        endif;
         self::$current_news_page = 0;
         self::$news_list = News::find()->orderBy('news_date', 'DESC')->all();
     }
