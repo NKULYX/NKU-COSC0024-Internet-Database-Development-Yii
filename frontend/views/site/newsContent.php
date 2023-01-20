@@ -13,7 +13,7 @@ $this->title = 'My Yii Application';
 <div class="col-lg-8 entries">
     <article class="entry entry-single">
         <div class="entry-img">
-            <img src="<?="../../common/static/images/news/news-" . $model->news_id . ".jpg"?>" alt="" class="img-fluid">
+            <img src="<?="../../common/static/images/news/" . $model->news_photo?>" alt="" class="img-fluid">
         </div>
         <h2 class="entry-title">
             <a><?=$model->news_title?></a>
@@ -36,44 +36,10 @@ $this->title = 'My Yii Application';
         </div>
 
         <div class="entry-content">
-            <p>
-                Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
-            </p>
-
-            <p>
-                Sit repellat hic cupiditate hic ut nemo. Quis nihil sunt non reiciendis. Sequi in accusamus harum vel aspernatur. Excepturi numquam nihil cumque odio. Et voluptate cupiditate.
-            </p>
-
-            <blockquote>
-                <p>
-                    Et vero doloremque tempore voluptatem ratione vel aut. Deleniti sunt animi aut. Aut eos aliquam doloribus minus autem quos.
-                </p>
-            </blockquote>
-
-            <p>
-                Sed quo laboriosam qui architecto. Occaecati repellendus omnis dicta inventore tempore provident voluptas mollitia aliquid. Id repellendus quia. Asperiores nihil magni dicta est suscipit perspiciatis. Voluptate ex rerum assumenda dolores nihil quaerat.
-                Dolor porro tempora et quibusdam voluptas. Beatae aut at ad qui tempore corrupti velit quisquam rerum. Omnis dolorum exercitationem harum qui qui blanditiis neque.
-                Iusto autem itaque. Repudiandae hic quae aspernatur ea neque qui. Architecto voluptatem magni. Vel magnam quod et tempora deleniti error rerum nihil tempora.
-            </p>
-
-            <h3>Et quae iure vel ut odit alias.</h3>
-            <p>
-                Officiis animi maxime nulla quo et harum eum quis a. Sit hic in qui quos fugit ut rerum atque. Optio provident dolores atque voluptatem rem excepturi molestiae qui. Voluptatem laborum omnis ullam quibusdam perspiciatis nulla nostrum. Voluptatum est libero eum nesciunt aliquid qui.
-                Quia et suscipit non sequi. Maxime sed odit. Beatae nesciunt nesciunt accusamus quia aut ratione aspernatur dolor. Sint harum eveniet dicta exercitationem minima. Exercitationem omnis asperiores natus aperiam dolor consequatur id ex sed. Quibusdam rerum dolores sint consequatur quidem ea.
-                Beatae minima sunt libero soluta sapiente in rem assumenda. Et qui odit voluptatem. Cum quibusdam voluptatem voluptatem accusamus mollitia aut atque aut.
-            </p>
-            <img src="assets/img/blog/blog-inside-post.jpg" class="img-fluid" alt="">
-
-            <h3>Ut repellat blanditiis est dolore sunt dolorum quae.</h3>
-            <p>
-                Rerum ea est assumenda pariatur quasi et quam. Facilis nam porro amet nostrum. In assumenda quia quae a id praesentium. Quos deleniti libero sed occaecati aut porro autem. Consectetur sed excepturi sint non placeat quia repellat incidunt labore. Autem facilis hic dolorum dolores vel.
-                Consectetur quasi id et optio praesentium aut asperiores eaque aut. Explicabo omnis quibusdam esse. Ex libero illum iusto totam et ut aut blanditiis. Veritatis numquam ut illum ut a quam vitae.
-            </p>
-            <p>
-                Alias quia non aliquid. Eos et ea velit. Voluptatem maxime enim omnis ipsa voluptas incidunt. Nulla sit eaque mollitia nisi asperiores est veniam.
-            </p>
-
+            <?php $news_content = $model->getNewsContent() ?>
+            <?php foreach ($news_content as $content):?>
+                <p style="font-size: 15px"><?=$content?></p>
+            <?php endforeach;?>
         </div>
 
         <div class="entry-footer">
@@ -93,17 +59,16 @@ $this->title = 'My Yii Application';
     </article><!-- End blog entry -->
 
     <div class="blog-author d-flex align-items-center">
-        <img src="assets/img/blog/blog-author.jpg" class="rounded-circle float-left" alt="">
+        <?php $news_source = $model->getNewsSource()?>
+        <img src="<?="../../common/static/images/news_source/" . $news_source->source_photo ?>" class="rounded-circle float-left" alt="">
         <div>
-            <h4>Jane Smith</h4>
+            <h4><?=$news_source->source_name?></h4>
             <div class="social-links">
-                <a href="https://twitters.com/#"><i class="bi bi-twitter"></i></a>
-                <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
-                <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
+                <a href="<?=$news_source->source_twitter?>"><i class="bi bi-twitter"></i></a>
+                <a href="<?=$news_source->source_facebook?>"><i class="bi bi-facebook"></i></a>
+                <a href="<?=$news_source->source_instagram?>"><i class="biu bi-instagram"></i></a>
             </div>
-            <p>
-                Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium. Quas repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium ut unde voluptas.
-            </p>
+            <p><?=$news_source->source_introduction?></p>
         </div>
     </div><!-- End blog author bio -->
 

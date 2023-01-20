@@ -23,6 +23,8 @@ class News extends \yii\db\ActiveRecord
 
     private $comments;
 
+    private $source;
+
     /**
      * {@inheritdoc}
      */
@@ -69,7 +71,10 @@ class News extends \yii\db\ActiveRecord
      */
     public function getNewsSource()
     {
-        return $this->hasOne(NewsSource::className(), ['source_name' => 'news_source']);
+        if(!isset($this->source)){
+            $this->source = $this->hasOne(NewsSource::className(), ['source_name' => 'news_source'])->one();
+        }
+        return $this->source;
     }
 
     /**
@@ -88,6 +93,13 @@ class News extends \yii\db\ActiveRecord
     public function getNewsCommentNum()
     {
         return $this->getNewsComments()->count();
+    }
+
+    public function getNewsContent()
+    {
+        // 将 this->content 按照换行符进行分割然后返回
+        return explode('$$', $this->news_content);
+
     }
 
     /**

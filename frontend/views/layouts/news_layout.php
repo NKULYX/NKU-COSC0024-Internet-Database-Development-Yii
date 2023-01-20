@@ -72,11 +72,9 @@ AppAsset::register($this);
         <div class="container">
 
             <ol>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li>Blog Single</li>
+                <li><?= Html::a('Home', ['site/index']) ?></li>
+                <li><?= Html::a('News', ['site/show-news-list']) ?></li>
             </ol>
-            <h2>Blog Single</h2>
 
         </div>
     </section><!-- End Breadcrumbs -->
