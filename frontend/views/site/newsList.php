@@ -3,136 +3,61 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
+use frontend\models\NewsListUtil;
+use common\models\News;
 
 $this->title = 'My Yii Application';
 ?>
 <div class="col-lg-8 entries">
-
-    <article class="entry">
-
-        <div class="entry-img">
-            <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
-        </div>
-
-        <h2 class="entry-title">
-            <a href="blog-single.html">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
-        </h2>
-
-        <div class="entry-meta">
-            <ul>
-                <li class="d-flex align-items-center"><i class="bi bi-person"></i><a href="blog-single.html">John Doe</a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
-            </ul>
-        </div>
-
-        <div class="entry-content">
-            <p>
-                Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
-            </p>
-            <div class="read-more">
-                <?= Html::a('Read More', ['site/show-news-content']) ?>
+    <?php $newsList = NewsListUtil::getNewsList(); ?>
+    <?php for($i = NewsListUtil::$current_news_page; $i < 4 + NewsListUtil::$current_news_page && $i < NewsListUtil::$news_num; $i++):?>
+        <?php $news = $newsList[$i]; ?>
+        <article class="entry">
+            <div class="entry-img">
+                <img src="<?='../../common/static/images/news/news-' . $news->news_id . '.jpg' ?>" alt="" class="img-fluid">
             </div>
-        </div>
-
-    </article><!-- End blog entry -->
-
-    <article class="entry">
-
-        <div class="entry-img">
-            <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
-        </div>
-
-        <h2 class="entry-title">
-            <a href="blog-single.html">Nisi magni odit consequatur autem nulla dolorem</a>
-        </h2>
-
-        <div class="entry-meta">
-            <ul>
-                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
-            </ul>
-        </div>
-
-        <div class="entry-content">
-            <p>
-                Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis illum voluptatum et. Quo libero rerum voluptatem pariatur nam.
-                Ad impedit qui officiis est in non aliquid veniam laborum. Id ipsum qui aut. Sit aliquam et quia molestias laboriosam. Tempora nam odit omnis eum corrupti qui aliquid excepturi molestiae. Facilis et sint quos sed voluptas. Maxime sed tempore enim omnis non alias odio quos distinctio.
-            </p>
-            <div class="read-more">
-                <a href="blog-single.html">Read More</a>
+            <h2 class="entry-title">
+                <a><?=$news->news_title?></a>
+            </h2>
+            <div class="entry-meta">
+                <ul>
+                    <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i>
+                        <a><?=$news->news_source?></a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a><?=$news->news_date?></a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="bi bi-chat-dots"></i>
+                        <a>12 Comments</a>
+                    </li>
+                </ul>
             </div>
-        </div>
-
-    </article><!-- End blog entry -->
-
-    <article class="entry">
-
-        <div class="entry-img">
-            <img src="assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-        </div>
-
-        <h2 class="entry-title">
-            <a href="blog-single.html">Possimus soluta ut id suscipit ea ut. In quo quia et soluta libero sit sint.</a>
-        </h2>
-
-        <div class="entry-meta">
-            <ul>
-                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
-            </ul>
-        </div>
-
-        <div class="entry-content">
-            <p>
-                Aut iste neque ut illum qui perspiciatis similique recusandae non. Fugit autem dolorem labore omnis et. Eum temporibus fugiat voluptate enim tenetur sunt omnis.
-                Doloremque est saepe laborum aut. Ipsa cupiditate ex harum at recusandae nesciunt. Ut dolores velit.
-            </p>
-            <div class="read-more">
-                <a href="blog-single.html">Read More</a>
+            <div class="entry-content">
+                <p><?=$news->news_abstract?></p>
+                <div class="read-more">
+                    <?= Html::a('Read More', ['site/show-news-content']) ?>
+                </div>
             </div>
-        </div>
 
-    </article><!-- End blog entry -->
-
-    <article class="entry">
-
-        <div class="entry-img">
-            <img src="assets/img/blog/blog-4.jpg" alt="" class="img-fluid">
-        </div>
-
-        <h2 class="entry-title">
-            <a href="blog-single.html">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius exercitationem.</a>
-        </h2>
-
-        <div class="entry-meta">
-            <ul>
-                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
-            </ul>
-        </div>
-
-        <div class="entry-content">
-            <p>
-                Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
-                Quia sed sunt. Ea asperiores expedita et et delectus voluptates rerum. Id saepe ut itaque quod qui voluptas nobis porro rerum. Quam quia nesciunt qui aut est non omnis. Inventore occaecati et quaerat magni itaque nam voluptas. Voluptatem ducimus sint id earum ut nesciunt sed corrupti nemo.
-            </p>
-            <div class="read-more">
-                <a href="blog-single.html">Read More</a>
-            </div>
-        </div>
-
-    </article><!-- End blog entry -->
+        </article><!-- End blog entry -->
+    <?php endfor;?>
 
     <div class="blog-pagination">
         <ul class="justify-content-center">
-            <li class="active"><a class="page-num" href="#">1</a></li>
-            <li><a class="page-num" href="#">2</a></li>
-            <li><a class="page-num" href="#">3</a></li>
+            <?php for($i = 0; $i < NewsListUtil::$news_page_num; $i++):?>
+                <?php if($i === NewsListUtil::$current_news_page):?>
+                    <li class="active">
+                        <a class="page-num"><?=$i + 1?></a>
+                    </li>
+                <?php else:?>
+                    <li>
+                        <a class="page-num"><?=$i + 1?></a>
+                    </li>
+                <?php endif;?>
+            <?php endfor;?>
             <li><a class="next-page" href="#">Next</a></li>
         </ul>
     </div>
