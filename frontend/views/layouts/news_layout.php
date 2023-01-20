@@ -4,8 +4,9 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use frontend\assets\AppAsset;
 use yii\web\View;
+use frontend\assets\AppAsset;
+use common\models\NewsSource;
 
 AppAsset::register($this);
 ?>
@@ -99,15 +100,21 @@ AppAsset::register($this);
                             </form>
                         </div><!-- End sidebar search formn-->
 
-                        <h3 class="sidebar-title">Categories</h3>
+                        <h3 class="sidebar-title">News Source</h3>
                         <div class="sidebar-item categories">
+                            <?php
+                                $news_sources_num = NewsSource::find()->count();
+                                $news_sources = NewsSource::find()->orderBy('source_name', 'ASC')->all();
+                            ?>
                             <ul>
-                                <li><a href="#">General <span>(25)</span></a></li>
-                                <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                                <li><a href="#">Travel <span>(5)</span></a></li>
-                                <li><a href="#">Design <span>(22)</span></a></li>
-                                <li><a href="#">Creative <span>(8)</span></a></li>
-                                <li><a href="#">Educaion <span>(14)</span></a></li>
+                                <?php for($i = 0; $i < $news_sources_num; $i++): ?>
+                                    <li>
+                                        <a href="#">
+                                            <?= $news_sources[$i]->source_name ?>
+                                            <span>(<?= $news_sources[$i]->getNewsNum() ?>)</span>
+                                        </a>
+                                    </li>
+                                <?php endfor;?>
                             </ul>
                         </div><!-- End sidebar categories-->
 

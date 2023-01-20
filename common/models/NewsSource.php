@@ -18,6 +18,9 @@ use Yii;
  */
 class NewsSource extends \yii\db\ActiveRecord
 {
+
+    private $news;
+
     /**
      * {@inheritdoc}
      */
@@ -62,7 +65,15 @@ class NewsSource extends \yii\db\ActiveRecord
      */
     public function getNews()
     {
-        return $this->hasMany(News::className(), ['news_source' => 'source_name']);
+        if(!isset($this->news)){
+            $this->news = $this->hasMany(News::className(), ['news_source' => 'source_name']);
+        }
+        return $this->news;
+    }
+
+    public function getNewsNum()
+    {
+        return $this->getNews()->count();
     }
 
     /**

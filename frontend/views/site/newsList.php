@@ -14,7 +14,7 @@ $this->title = 'My Yii Application';
         <?php $news = $newsList[$i]; ?>
         <article class="entry">
             <div class="entry-img">
-                <img src="<?='../../common/static/images/news/news-' . $news->news_id . '.jpg' ?>" alt="" class="img-fluid">
+                <img src="<?='../../common/static/images/news/' . $news->news_photo ?>" alt="" class="img-fluid">
             </div>
             <h2 class="entry-title">
                 <a><?=$news->news_title?></a>

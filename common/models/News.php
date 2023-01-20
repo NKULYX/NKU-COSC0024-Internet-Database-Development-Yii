@@ -67,7 +67,7 @@ class News extends \yii\db\ActiveRecord
     /**
      * Gets query for [[NewsSource]].
      *
-     * @return \yii\db\ActiveQuery|NewsSourceQuery
+     * @return array|NewsSourceQuery|\yii\db\ActiveQuery|\yii\db\ActiveRecord
      */
     public function getNewsSource()
     {
