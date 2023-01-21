@@ -31,9 +31,6 @@ class AppAsset extends AssetBundle
         'assets/vendor/php-email-form/validate.js',
         'assets/js/main.js',
     ];
-    public $image = [
-        'assets/img/*'
-    ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset'
