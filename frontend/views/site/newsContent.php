@@ -6,6 +6,7 @@
 use common\models\News;
 use yii\helpers\Html;
 use \common\models\NewsSource;
+use \common\models\NewsComment;
 
 $this->title = 'My Yii Application';
 ?>
@@ -74,21 +75,24 @@ $this->title = 'My Yii Application';
 
     <div class="blog-comments">
 
-        <h4 class="comments-count">8 Comments</h4>
+        <h4 class="comments-count" style="font-size: 24px"><?=$model->getNewsCommentNum()?> Comments</h4>
 
-        <div id="comment-1" class="comment">
-            <div class="d-flex">
-                <div class="comment-img"><img src="../../common/static/images/users/default1.png" alt=""></div>
-                <div>
-                    <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="2020-01-01">01 Jan, 2020</time>
-                    <p>
-                        Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut sapiente quis molestiae est qui cum soluta.
-                        Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
-                    </p>
+        <?php $news_comments = $model->getNewsComments()->all(); ?>
+        <?php foreach ($news_comments as $comment):?>
+            <div class="comment">
+                <div class="d-flex">
+                    <div class="comment-img"><img src="../../common/static/images/users/default1.png" alt=""></div>
+                    <div>
+                        <?php $user = $comment->getCommentUser()->one(); ?>
+                        <h5 style="font-size: 20px"><a><?=$user->username?></a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                        <time style="font-size: 16px"><?=$comment->comment_time?></time>
+                        <p style="font-size: 15px">
+                            <?=$comment->comment_content?>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div><!-- End comment #1 -->
+        <?php endforeach;?>
 
         <div id="comment-2" class="comment">
             <div class="d-flex">
@@ -135,35 +139,6 @@ $this->title = 'My Yii Application';
             </div><!-- End comment reply #1-->
 
         </div><!-- End comment #2-->
-
-        <div id="comment-3" class="comment">
-            <div class="d-flex">
-                <div class="comment-img"><img src="assets/img/blog/comments-5.jpg" alt=""></div>
-                <div>
-                    <h5><a href="">Nolan Davidson</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="2020-01-01">01 Jan, 2020</time>
-                    <p>
-                        Distinctio nesciunt rerum reprehenderit sed. Iste omnis eius repellendus quia nihil ut accusantium tempore. Nesciunt expedita id dolor exercitationem aspernatur aut quam ut. Voluptatem est accusamus iste at.
-                        Non aut et et esse qui sit modi neque. Exercitationem et eos aspernatur. Ea est consequuntur officia beatae ea aut eos soluta. Non qui dolorum voluptatibus et optio veniam. Quam officia sit nostrum dolorem.
-                    </p>
-                </div>
-            </div>
-
-        </div><!-- End comment #3 -->
-
-        <div id="comment-4" class="comment">
-            <div class="d-flex">
-                <div class="comment-img"><img src="assets/img/blog/comments-6.jpg" alt=""></div>
-                <div>
-                    <h5><a href="">Kay Duggan</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="2020-01-01">01 Jan, 2020</time>
-                    <p>
-                        Dolorem atque aut. Omnis doloremque blanditiis quia eum porro quis ut velit tempore. Cumque sed quia ut maxime. Est ad aut cum. Ut exercitationem non in fugiat.
-                    </p>
-                </div>
-            </div>
-
-        </div><!-- End comment #4 -->
 
         <div class="reply-form">
             <h4>Leave a Reply</h4>
