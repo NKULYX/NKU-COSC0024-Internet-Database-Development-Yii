@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'source_twitter',
             'source_facebook',
             'source_instagram',
-            //'source_photo',
+            'source_photo',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

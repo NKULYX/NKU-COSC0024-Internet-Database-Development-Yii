@@ -1,18 +1,18 @@
 <?php
 
-namespace frontend\controllers;
+namespace backend\controllers;
 
 use Yii;
-use common\models\NewsSource;
-use common\models\NewsSourceSearch;
+use common\models\News;
+use common\models\NewsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * NewsSourceController implements the CRUD actions for NewsSource model.
+ * NewsController implements the CRUD actions for News model.
  */
-class NewsSourceController extends Controller
+class NewsController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,13 @@ class NewsSourceController extends Controller
     }
 
     /**
-     * Lists all NewsSource models.
+     * Lists all News models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new NewsSourceSearch();
+        $this->layout = 'backend_layout';
+        $searchModel = new NewsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,29 +46,31 @@ class NewsSourceController extends Controller
     }
 
     /**
-     * Displays a single NewsSource model.
-     * @param string $id
+     * Displays a single News model.
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
+        $this->layout = 'backend_layout';
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new NewsSource model.
+     * Creates a new News model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new NewsSource();
+        $this->layout = 'backend_layout';
+        $model = new News();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->source_name]);
+            return $this->redirect(['view', 'id' => $model->news_id]);
         }
 
         return $this->render('create', [
@@ -76,18 +79,19 @@ class NewsSourceController extends Controller
     }
 
     /**
-     * Updates an existing NewsSource model.
+     * Updates an existing News model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
+        $this->layout = 'backend_layout';
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->source_name]);
+            return $this->redirect(['view', 'id' => $model->news_id]);
         }
 
         return $this->render('update', [
@@ -96,29 +100,30 @@ class NewsSourceController extends Controller
     }
 
     /**
-     * Deletes an existing NewsSource model.
+     * Deletes an existing News model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
+        $this->layout = 'backend_layout';
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the NewsSource model based on its primary key value.
+     * Finds the News model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return NewsSource the loaded model
+     * @param integer $id
+     * @return News the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = NewsSource::findOne($id)) !== null) {
+        if (($model = News::findOne($id)) !== null) {
             return $model;
         }
 
