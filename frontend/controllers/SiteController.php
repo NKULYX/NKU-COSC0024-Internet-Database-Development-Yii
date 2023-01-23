@@ -276,4 +276,17 @@ class SiteController extends Controller
             'model' => $model
         ]);
     }
+
+    public function actionShowNextNewsPage()
+    {
+        $this->layout = 'news_layout';
+        NewsListUtil::init();
+        $next_page = (int)Yii::$app->request->get()['next_page'];
+        if($next_page * 4 > NewsListUtil::$news_num):{
+            --$next_page;
+        }
+        endif;
+        NewsListUtil::$current_news_page = $next_page;
+        return $this->render('newsList');
+    }
 }

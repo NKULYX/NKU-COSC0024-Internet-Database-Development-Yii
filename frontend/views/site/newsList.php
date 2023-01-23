@@ -10,7 +10,8 @@ $this->title = 'My Yii Application';
 ?>
 <div class="col-lg-8 entries">
     <?php $newsList = NewsListUtil::getNewsList(); ?>
-    <?php for($i = NewsListUtil::$current_news_page; $i < 4 + NewsListUtil::$current_news_page && $i < NewsListUtil::$news_num; $i++):?>
+    <?php var_dump(NewsListUtil::$news_num); ?>
+    <?php for($i = NewsListUtil::$current_news_page * 4; $i < 4 + NewsListUtil::$current_news_page && $i < NewsListUtil::$news_num; $i++):?>
         <?php $news = $newsList[$i]; ?>
         <article class="entry">
             <div class="entry-img">
@@ -57,7 +58,7 @@ $this->title = 'My Yii Application';
                     </li>
                 <?php endif;?>
             <?php endfor;?>
-            <li><a class="next-page" href="#">Next</a></li>
+            <li><?= Html::a('Next', ['site/show-next-news-page', 'next_page' => NewsListUtil::$current_news_page + 1], ['class' => 'next-page']) ?></li>
         </ul>
     </div>
 
