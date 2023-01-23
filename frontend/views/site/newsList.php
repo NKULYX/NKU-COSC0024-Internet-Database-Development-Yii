@@ -10,7 +10,6 @@ $this->title = 'My Yii Application';
 ?>
 <div class="col-lg-8 entries">
     <?php $newsList = NewsListUtil::getNewsList(); ?>
-    <?php var_dump(NewsListUtil::$news_num); ?>
     <?php for($i = NewsListUtil::$current_news_page * 4; $i < 4 + NewsListUtil::$current_news_page && $i < NewsListUtil::$news_num; $i++):?>
         <?php $news = $newsList[$i]; ?>
         <article class="entry">
@@ -50,15 +49,15 @@ $this->title = 'My Yii Application';
             <?php for($i = 0; $i < NewsListUtil::$news_page_num; $i++):?>
                 <?php if($i === NewsListUtil::$current_news_page):?>
                     <li class="active">
-                        <a class="page-num"><?=$i + 1?></a>
+                        <?= Html::a((string)($i + 1), ['site/show-target-news-page', 'news_page' => $i], ['class' => 'page-num']) ?>
                     </li>
                 <?php else:?>
                     <li>
-                        <a class="page-num"><?=$i + 1?></a>
+                        <?= Html::a((string)($i + 1), ['site/show-target-news-page', 'news_page' => $i], ['class' => 'page-num']) ?>
                     </li>
                 <?php endif;?>
             <?php endfor;?>
-            <li><?= Html::a('Next', ['site/show-next-news-page', 'next_page' => NewsListUtil::$current_news_page + 1], ['class' => 'next-page']) ?></li>
+            <li><?= Html::a('Next', ['site/show-target-news-page', 'news_page' => NewsListUtil::$current_news_page + 1], ['class' => 'next-page']) ?></li>
         </ul>
     </div>
 

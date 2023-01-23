@@ -104,15 +104,12 @@ AppAsset::register($this);
                         <div class="sidebar-item categories">
                             <?php
                                 $news_sources_num = NewsSource::find()->count();
-                                $news_sources = NewsSource::find()->orderBy('source_name', 'ASC')->all();
+                                $news_sources = NewsSource::find()->orderBy('source_name ASC')->all();
                             ?>
                             <ul>
                                 <?php for($i = 0; $i < $news_sources_num; $i++): ?>
                                     <li>
-                                        <a href="#">
-                                            <?= $news_sources[$i]->source_name ?>
-                                            <span>(<?= $news_sources[$i]->getNewsNum() ?>)</span>
-                                        </a>
+                                        <?= Html::a($news_sources[$i]->source_name . '(' . $news_sources[$i]->getNewsNum() . ')', ['site/filter-news-source', 'news_source' => $news_sources[$i]->source_name]) ?>
                                     </li>
                                 <?php endfor;?>
                             </ul>

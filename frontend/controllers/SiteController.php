@@ -267,26 +267,32 @@ class SiteController extends Controller
         return $this->render('newsList');
     }
 
-    public function actionShowNewsContent()
+    public function actionShowNewsContent($news_id)
     {
         $this->layout = 'news_layout';
-        $news_id = (int)Yii::$app->request->get()['news_id'];
         $model = News::find()->where(['news_id' => $news_id])->one();
         return $this->render('newsContent',[
             'model' => $model
         ]);
     }
 
-    public function actionShowNextNewsPage()
+    public function actionShowTargetNewsPage($news_page)
     {
         $this->layout = 'news_layout';
         NewsListUtil::init();
-        $next_page = (int)Yii::$app->request->get()['next_page'];
-        if($next_page * 4 > NewsListUtil::$news_num):{
-            --$next_page;
+        $news_page = (int)$news_page;
+        if($news_page * 4 > NewsListUtil::$news_num):{
+            --$news_page;
         }
         endif;
-        NewsListUtil::$current_news_page = $next_page;
+        NewsListUtil::$current_news_page = $news_page;
+        return $this->render('newsList');
+    }
+
+    public function actionFilterNewsSource($news_source)
+    {
+        $this->layout = 'news_layout';
+        NewsListUtil::filterNewsSource($news_source);
         return $this->render('newsList');
     }
 }

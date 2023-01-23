@@ -14,14 +14,22 @@ class NewsListUtil
 
     public static function init()
     {
-        self::$news_num = count(News::find()->all(), COUNT_RECURSIVE);
+        self::$news_list = News::find()->orderBy('news_date DESC')->all();
+        self::$news_num = count(self::$news_list, COUNT_RECURSIVE);
         self::$news_page_num = self::$news_num / 4;
         self::$current_news_page = 0;
-        self::$news_list = News::find()->orderBy('news_date DESC')->all();
     }
 
     public static function getNewsList()
     {
         return self::$news_list;
+    }
+
+    public static function filterNewsSource($news_source)
+    {
+        self::$news_list = News::find()->orderBy('news_date DESC')->where(['news_source' => $news_source])->all();
+        self::$news_num = count(self::$news_list, COUNT_RECURSIVE);
+        self::$news_page_num = self::$news_num / 4;
+        self::$current_news_page = 0;
     }
 }
