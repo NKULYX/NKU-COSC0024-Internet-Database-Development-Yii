@@ -263,7 +263,11 @@ class SiteController extends Controller
     public function actionShowNewsList()
     {
         $this->layout = 'news_layout';
-        NewsListUtil::init();
+        if(Yii::$app->request->post('search_keywords')):
+            NewsListUtil::init(['search_keywords' => Yii::$app->request->post('search_keywords')]);
+        else:
+            NewsListUtil::init();
+        endif;
         return $this->render('newsList');
     }
 
@@ -292,7 +296,7 @@ class SiteController extends Controller
     public function actionFilterNewsSource($news_source)
     {
         $this->layout = 'news_layout';
-        NewsListUtil::filterNewsSource($news_source);
+        NewsListUtil::init(['news_source' => $news_source]);
         return $this->render('newsList');
     }
 }

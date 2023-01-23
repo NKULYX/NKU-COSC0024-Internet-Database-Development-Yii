@@ -22,12 +22,16 @@ $this->title = 'My Yii Application';
             <div class="entry-meta">
                 <ul>
                     <li class="d-flex align-items-center">
-                        <i class="bi bi-person"></i>
+                        <i class="bi bi-bank"></i>
                         <a><?=$news->news_source?></a>
                     </li>
                     <li class="d-flex align-items-center">
-                        <i class="bi bi-clock"></i>
+                        <i class="bi bi-calendar-week"></i>
                         <a><?=$news->news_date?></a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="bi bi-clock-history"></i>
+                        <a><?=1?></a>
                     </li>
                     <li class="d-flex align-items-center">
                         <i class="bi bi-chat-dots"></i>

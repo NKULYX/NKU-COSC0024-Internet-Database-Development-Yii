@@ -27,18 +27,18 @@ AppAsset::register($this);
 <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <img src="<?="../web/statics/assets/img/logo.png"?>" alt="">
         <span>FlexStart</span>
       </a>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto active" href="index.php#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.php#about">About</a></li>
+          <li><a class="nav-link scrollto" href="index.php#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="index.php#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="index.php#team">Team</a></li>
           <li><?= Html::a('News', ['site/show-news-list']) ?></li>
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -94,10 +94,10 @@ AppAsset::register($this);
 
                         <h3 class="sidebar-title">Search</h3>
                         <div class="sidebar-item search-form">
-                            <form action="">
-                                <input type="text">
+                            <?= Html::beginForm() ?>
+                                <input type="text" name="search_keywords">
                                 <button type="submit"><i class="bi bi-search"></i></button>
-                            </form>
+                            <?= Html::endForm()?>
                         </div><!-- End sidebar search formn-->
 
                         <h3 class="sidebar-title">News Source</h3>
@@ -114,40 +114,6 @@ AppAsset::register($this);
                                 <?php endfor;?>
                             </ul>
                         </div><!-- End sidebar categories-->
-
-                        <h3 class="sidebar-title">Recent Posts</h3>
-                        <div class="sidebar-item recent-posts">
-                            <div class="post-item clearfix">
-                                <img src="assets/img/blog/blog-recent-1.jpg" alt="">
-                                <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
-                                <time datetime="2020-01-01">Jan 1, 2020</time>
-                            </div>
-
-                            <div class="post-item clearfix">
-                                <img src="assets/img/blog/blog-recent-2.jpg" alt="">
-                                <h4><a href="blog-single.html">Quidem autem et impedit</a></h4>
-                                <time datetime="2020-01-01">Jan 1, 2020</time>
-                            </div>
-
-                            <div class="post-item clearfix">
-                                <img src="assets/img/blog/blog-recent-3.jpg" alt="">
-                                <h4><a href="blog-single.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-                                <time datetime="2020-01-01">Jan 1, 2020</time>
-                            </div>
-
-                            <div class="post-item clearfix">
-                                <img src="assets/img/blog/blog-recent-4.jpg" alt="">
-                                <h4><a href="blog-single.html">Laborum corporis quo dara net para</a></h4>
-                                <time datetime="2020-01-01">Jan 1, 2020</time>
-                            </div>
-
-                            <div class="post-item clearfix">
-                                <img src="assets/img/blog/blog-recent-5.jpg" alt="">
-                                <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                                <time datetime="2020-01-01">Jan 1, 2020</time>
-                            </div>
-
-                        </div><!-- End sidebar recent posts-->
 
                         <h3 class="sidebar-title">Tags</h3>
                         <div class="sidebar-item tags">
