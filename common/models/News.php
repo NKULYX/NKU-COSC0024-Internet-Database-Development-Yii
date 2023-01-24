@@ -85,7 +85,7 @@ class News extends \yii\db\ActiveRecord
     public function getNewsComments()
     {
         if(!isset($this->comments)) {
-            $this->comments = $this->hasMany(NewsComment::className(), ['comment_news' => 'news_id']);
+            $this->comments = $this->hasMany(NewsComment::className(), ['comment_news' => 'news_id'])->orderBy('comment_time DESC');
         }
         return $this->comments;
     }

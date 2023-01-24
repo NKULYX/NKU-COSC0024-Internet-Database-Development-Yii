@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\News;
+use common\models\NewsComment;
 use frontend\models\NewsListUtil;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
@@ -298,5 +299,21 @@ class SiteController extends Controller
         $this->layout = 'news_layout';
         NewsListUtil::init(['news_source' => $news_source]);
         return $this->render('newsList');
+    }
+
+    public function actionAddNewsComment()
+    {
+        $this->layout = 'news_layout';
+        $model = new NewsComment();
+        $model->comment_news = Yii::$app->request->post('news_id');
+        $model->comment_user = Yii::$app->request->post('user_id');
+        $model->comment_content = Yii::$app->request->post('comment');
+        date_default_timezone_set('PRC');
+        $model->comment_time = date('Y-m-d H:i:s');
+        $model->save();
+        $news_content = News::find()->where(['news_id' => Yii::$app->request->post('news_id')])->one();
+        return $this->render('newsContent',[
+            'model' => $news_content
+        ]);
     }
 }
