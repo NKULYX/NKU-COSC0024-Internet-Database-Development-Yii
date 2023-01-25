@@ -69,7 +69,18 @@ class NewsController extends Controller
         $this->layout = 'backend_layout';
         $model = new News();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if (Yii::$app->request->post('is_create')) {
+            $model->news_title = Yii::$app->request->post('news_title');
+            $model->news_abstract = Yii::$app->request->post('news_abstract');
+            $model->news_content = Yii::$app->request->post('news_content');
+            $model->news_date = Yii::$app->request->post('news_date');
+            $model->news_source = Yii::$app->request->post('news_source');
+            $filename = date('YmdHis') . '_' . $_FILES['file']['name'];
+            $temp_name = $_FILES['file']['tmp_name'];
+            if (move_uploaded_file($temp_name, '../../common/static/images/news/'.$filename)){
+                $model->news_photo = $filename;
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->news_id]);
         }
 
@@ -90,7 +101,20 @@ class NewsController extends Controller
         $this->layout = 'backend_layout';
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if (Yii::$app->request->post('is_update')) {
+            $model->news_title = Yii::$app->request->post('news_title');
+            $model->news_abstract = Yii::$app->request->post('news_abstract');
+            $model->news_content = Yii::$app->request->post('news_content');
+            $model->news_date = Yii::$app->request->post('news_date');
+            $model->news_source = Yii::$app->request->post('news_source');
+            if(isset($_FILES['file']['name'])) {
+                $filename = date('YmdHis') . '_' . $_FILES['file']['name'];
+                $temp_name = $_FILES['file']['tmp_name'];
+                if (move_uploaded_file($temp_name, '../../common/static/images/news/'.$filename)){
+                    $model->news_photo = $filename;
+                }
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->news_id]);
         }
 
@@ -132,7 +156,7 @@ class NewsController extends Controller
 
     public function actionTest()
     {
-//        var_dump(Yii::$app->request->post());
+        var_dump(Yii::$app->request->post());
 //        var_dump($_FILES['file']['name']);
 //        var_dump($_FILES['file']['tmp_name']);
         $size = $_FILES['file']['size'];
@@ -144,11 +168,11 @@ class NewsController extends Controller
             echo "<script>alert('文件大小超过2M大小');window.history.go(-1);</script>";
             exit();
         }
-        $arr = pathinfo($filename);
-        $ext_suffix = $arr['extension'];
-        $new_filename = date('YmdHis',time()).rand(100,1000).'.'.$ext_suffix;
-        if (move_uploaded_file($temp_name, '../../common/static/images/news/'.$filename)){
-            echo "<script>alert('文件上传成功！');window.history.go(-1);</script>";
-        }
+//        $arr = pathinfo($filename);
+//        $ext_suffix = $arr['extension'];
+//        $new_filename = date('YmdHis',time()).rand(100,1000).'.'.$ext_suffix;
+//        if (move_uploaded_file($temp_name, '../../common/static/images/news/'.$filename)){
+//            echo "<script>alert('文件上传成功！');window.history.go(-1);</script>";
+//        }
     }
 }
