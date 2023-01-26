@@ -69,7 +69,20 @@ class NewsSourceController extends Controller
         $this->layout = 'backend_layout';
         $model = new NewsSource();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if (Yii::$app->request->post('is_create')) {
+            $model->source_name = Yii::$app->request->post('source_name');
+            $model->source_introduction = Yii::$app->request->post('source_introduction');
+            $model->source_twitter = Yii::$app->request->post('source_twitter');
+            $model->source_facebook = Yii::$app->request->post('source_facebook');
+            $model->source_instagram = Yii::$app->request->post('source_instagram');
+            $suffix = (explode('.', $_FILES['file']['name']))[1];
+            $filename = $model->source_name . '.' . $suffix;
+            $temp_name = $_FILES['file']['tmp_name'];
+            if (move_uploaded_file($temp_name, '../../common/static/images/news_source/'.$filename)){
+                $model->source_photo = $filename;
+            }
+            var_dump($model);
+            $model->save();
             return $this->redirect(['view', 'id' => $model->source_name]);
         }
 
@@ -90,7 +103,21 @@ class NewsSourceController extends Controller
         $this->layout = 'backend_layout';
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if (Yii::$app->request->post('is_update')) {
+            $model->source_name = Yii::$app->request->post('source_name');
+            $model->source_introduction = Yii::$app->request->post('source_introduction');
+            $model->source_twitter = Yii::$app->request->post('source_twitter');
+            $model->source_facebook = Yii::$app->request->post('source_facebook');
+            $model->source_instagram = Yii::$app->request->post('source_instagram');
+            if($_FILES['file']['name'] !== "") {
+                $suffix = (explode('.', $_FILES['file']['name']))[1];
+                $filename = explode('.', $model->source_name)[0] . '.' . $suffix;
+                $temp_name = $_FILES['file']['tmp_name'];
+                if (move_uploaded_file($temp_name, '../../common/static/images/news/'.$filename)){
+                    $model->source_photo = $filename;
+                }
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->source_name]);
         }
 
