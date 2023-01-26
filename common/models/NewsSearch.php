@@ -17,7 +17,7 @@ class NewsSearch extends News
     public function rules()
     {
         return [
-            [['news_id'], 'integer'],
+            [['news_id', 'news_views'], 'integer'],
             [['news_title', 'news_content', 'news_photo', 'news_date', 'news_source', 'news_abstract'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class NewsSearch extends News
         $query->andFilterWhere([
             'news_id' => $this->news_id,
             'news_date' => $this->news_date,
+            'news_views' => $this->news_views,
         ]);
 
         $query->andFilterWhere(['like', 'news_title', $this->news_title])

@@ -7,6 +7,7 @@ use common\models\NewsSource;
 /* @var $model common\models\News */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $to string*/
+/* @var $news_id integer*/
 ?>
 
 
@@ -14,12 +15,12 @@ use common\models\NewsSource;
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">General Form Elements</h5>
-
             <!-- General Form Elements -->
             <?php if($to === 'create'): ?>
+                <h5 class="card-title"><b>新建新闻</b></h5>
                 <?= Html::beginForm('@web/index.php?r=news/create','post',['enctype' => 'multipart/form-data']) ?>
             <?php else: ?>
+                <h5 class="card-title"><b>更新新闻</b></h5>
                 <?= Html::beginForm('@web/index.php?r=news/update' . '&id=' . $model->news_id,'post',['enctype' => 'multipart/form-data']) ?>
             <?php endif;?>
                 <input type="hidden" name="is_create" value="true" />

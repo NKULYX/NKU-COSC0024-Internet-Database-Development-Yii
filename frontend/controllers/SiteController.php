@@ -276,6 +276,8 @@ class SiteController extends Controller
     {
         $this->layout = 'news_layout';
         $model = News::find()->where(['news_id' => $news_id])->one();
+        ++$model->news_views;
+        $model->save();
         return $this->render('newsContent',[
             'model' => $model
         ]);

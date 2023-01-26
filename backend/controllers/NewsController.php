@@ -75,7 +75,11 @@ class NewsController extends Controller
             $model->news_content = Yii::$app->request->post('news_content');
             $model->news_date = Yii::$app->request->post('news_date');
             $model->news_source = Yii::$app->request->post('news_source');
-            $filename = date('YmdHis') . '_' . $_FILES['file']['name'];
+            $model->news_photo = 'tmp';
+            $model->save();
+            $model = News::find()->orderBy('news_id DESC')->limit(1)->one();
+            $suffix = (explode('.', $_FILES['file']['name']))[1];
+            $filename = 'news-' . $model->news_id . '.' . $suffix;
             $temp_name = $_FILES['file']['tmp_name'];
             if (move_uploaded_file($temp_name, '../../common/static/images/news/'.$filename)){
                 $model->news_photo = $filename;
@@ -107,8 +111,9 @@ class NewsController extends Controller
             $model->news_content = Yii::$app->request->post('news_content');
             $model->news_date = Yii::$app->request->post('news_date');
             $model->news_source = Yii::$app->request->post('news_source');
-            if(isset($_FILES['file']['name'])) {
-                $filename = date('YmdHis') . '_' . $_FILES['file']['name'];
+            if($_FILES['file']['name'] !== "") {
+                $suffix = (explode('.', $_FILES['file']['name']))[1];
+                $filename = explode('.', $model->news_photo)[0] . '.' . $suffix;
                 $temp_name = $_FILES['file']['tmp_name'];
                 if (move_uploaded_file($temp_name, '../../common/static/images/news/'.$filename)){
                     $model->news_photo = $filename;
@@ -154,25 +159,4 @@ class NewsController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-    public function actionTest()
-    {
-        var_dump(Yii::$app->request->post());
-//        var_dump($_FILES['file']['name']);
-//        var_dump($_FILES['file']['tmp_name']);
-        $size = $_FILES['file']['size'];
-        $filename = $_FILES['file']['name'];
-        $temp_name = $_FILES['file']['tmp_name'];
-        $error = $_FILES['file']['error'];
-        if ($size > 2*1024*1024){
-            //
-            echo "<script>alert('文件大小超过2M大小');window.history.go(-1);</script>";
-            exit();
-        }
-//        $arr = pathinfo($filename);
-//        $ext_suffix = $arr['extension'];
-//        $new_filename = date('YmdHis',time()).rand(100,1000).'.'.$ext_suffix;
-//        if (move_uploaded_file($temp_name, '../../common/static/images/news/'.$filename)){
-//            echo "<script>alert('文件上传成功！');window.history.go(-1);</script>";
-//        }
-    }
 }

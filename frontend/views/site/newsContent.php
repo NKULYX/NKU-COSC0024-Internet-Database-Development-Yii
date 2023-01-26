@@ -30,6 +30,10 @@ $this->title = 'My Yii Application';
                     <a><?=$model->news_date?></a>
                 </li>
                 <li class="d-flex align-items-center">
+                    <i class="bi bi-clock-history"></i>
+                    <a><?=$model->news_views?></a>
+                </li>
+                <li class="d-flex align-items-center">
                     <i class="bi bi-chat-dots"></i>
                     <a><?=$model->getNewsCommentNum()?></a>
                 </li>

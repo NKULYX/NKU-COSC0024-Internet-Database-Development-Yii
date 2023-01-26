@@ -14,6 +14,7 @@ use Yii;
  * @property string $news_date 发表日期
  * @property string $news_source 来源
  * @property string $news_abstract 摘要
+ * @property int|null $news_views 浏览计数
  *
  * @property NewsSource $newsSource
  * @property NewsComment[] $newsComments
@@ -42,6 +43,7 @@ class News extends \yii\db\ActiveRecord
             [['news_title', 'news_content', 'news_photo', 'news_date', 'news_source', 'news_abstract'], 'required'],
             [['news_title', 'news_content', 'news_abstract'], 'string'],
             [['news_date'], 'safe'],
+            [['news_views'], 'integer'],
             [['news_photo'], 'string', 'max' => 255],
             [['news_source'], 'string', 'max' => 20],
             [['news_source'], 'exist', 'skipOnError' => true, 'targetClass' => NewsSource::className(), 'targetAttribute' => ['news_source' => 'source_name']],
@@ -61,6 +63,7 @@ class News extends \yii\db\ActiveRecord
             'news_date' => '发表日期',
             'news_source' => '来源',
             'news_abstract' => '摘要',
+            'news_views' => '浏览计数'
         ];
     }
 

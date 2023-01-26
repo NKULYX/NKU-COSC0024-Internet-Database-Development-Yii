@@ -31,11 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'news_id',
             'news_title:ntext',
+            'news_abstract:ntext',
             'news_content:ntext',
-            'news_photo',
             'news_date',
             'news_source',
-            'news_abstract:ntext',
+            'news_photo',
         ],
     ]) ?>
 

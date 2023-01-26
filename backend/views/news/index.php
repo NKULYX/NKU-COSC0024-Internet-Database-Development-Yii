@@ -29,9 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'news_title:ntext',
             'news_abstract:ntext',
             'news_content:ntext',
-            'news_photo',
             'news_date',
             'news_source',
+            'news_views',
+            'news_photo',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
