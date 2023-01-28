@@ -372,6 +372,11 @@ AppAsset::register($this);
                         <i class="bi bi-circle"></i><span>News Source</span>
                     </a>
                 </li>
+                <li>
+                    <a href="<?= Url::to('index.php?r=news-comment') ?>">
+                        <i class="bi bi-circle"></i><span>News Comment</span>
+                    </a>
+                </li>
             </ul>
         </li><!-- End Forms Nav -->
 

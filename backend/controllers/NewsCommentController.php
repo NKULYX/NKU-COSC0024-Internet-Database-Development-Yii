@@ -35,6 +35,7 @@ class NewsCommentController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'backend_layout';
         $searchModel = new NewsCommentSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -52,6 +53,7 @@ class NewsCommentController extends Controller
      */
     public function actionView($id)
     {
+        $this->layout = 'backend_layout';
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -64,6 +66,7 @@ class NewsCommentController extends Controller
      */
     public function actionCreate()
     {
+        $this->layout = 'backend_layout';
         $model = new NewsComment();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -84,9 +87,12 @@ class NewsCommentController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout = 'backend_layout';
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if (Yii::$app->request->post('is_update')) {
+            $model->comment_content = Yii::$app->request->post('comment_content');
+            $model->save();
             return $this->redirect(['view', 'id' => $model->comment_id]);
         }
 
@@ -104,6 +110,7 @@ class NewsCommentController extends Controller
      */
     public function actionDelete($id)
     {
+        $this->layout = 'backend_layout';
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
