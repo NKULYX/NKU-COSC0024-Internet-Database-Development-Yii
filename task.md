@@ -2,7 +2,7 @@
   * news
   * comment
   * source
-  * data backend view page
+  * backend data view page
 * zjk
   * backend template
   * F.A.Q
