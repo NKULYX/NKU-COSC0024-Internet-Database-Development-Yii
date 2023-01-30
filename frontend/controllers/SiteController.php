@@ -88,16 +88,17 @@ class SiteController extends Controller
     public function actionLogin()
     {
         $this->layout = 'login_layout';
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
             $model->password = '';
-
             return $this->render('login', [
                 'model' => $model,
             ]);
@@ -156,6 +157,7 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
+        // echo 12345;
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');

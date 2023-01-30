@@ -60,7 +60,13 @@ AppAsset::register($this);
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <!-- biandi -->
+          <!-- <li><a class="getstarted scrollto" href="#about">Login</a></li> -->
+            <li><?= Html::a('Login', ['site/login']) ?></li>
+            <li><?= Html::a('Logout', ['site/logout']) ?></li>
+
+          
+          <!-- biandi -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

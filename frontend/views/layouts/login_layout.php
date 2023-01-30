@@ -79,12 +79,39 @@ AppAsset::register($this);
         grid-row: 1 / 2;
     }
 
-    form.sign-up-form {
+    /* form.sign-up-form {
         opacity: 0;
         z-index: 1;
     }
 
     form.sign-in-form {
+        z-index: 2;
+    } */
+
+    .sign-up-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0rem 5rem;
+        transition: all 0.2s 0.7s;
+        overflow: hidden;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .sign-in-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0rem 5rem;
+        transition: all 0.2s 0.7s;
+        overflow: hidden;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
         z-index: 2;
     }
 
@@ -275,12 +302,30 @@ AppAsset::register($this);
         left: 25%;
     }
 
-    .container.sign-up-mode form.sign-up-form {
+    .container.sign-up-mode .sign-up-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0rem 5rem;
+        transition: all 0.2s 0.7s;
+        overflow: hidden;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;        
         opacity: 1;
         z-index: 2;
     }
 
-    .container.sign-up-mode form.sign-in-form {
+    .container.sign-up-mode .sign-in-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0rem 5rem;
+        transition: all 0.2s 0.7s;
+        overflow: hidden;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;        
         opacity: 0;
         z-index: 1;
     }
