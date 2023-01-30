@@ -14,9 +14,11 @@ class NewsListUtil
 
     public static function init($option = [])
     {
-        if(isset($option['news_source'])):
+        self::$news_list = News::find()->orderBy('news_date DESC')->all();
+        if(isset($option['news_source'])) {
             self::$news_list = News::find()->orderBy('news_date DESC')->where(['news_source' => $option['news_source']])->all();
-        elseif(isset($option['search_keywords'])):
+        }
+        if(isset($option['search_keywords'])) {
             self::$news_list = News::find()->orderBy('news_date DESC')
                 ->orFilterWhere(['like', 'news_title', $option['search_keywords']])
                 ->orFilterWhere(['like', 'news_abstract', $option['search_keywords']])
@@ -24,9 +26,7 @@ class NewsListUtil
                 ->orFilterWhere(['like', 'news_source', $option['search_keywords']])
                 ->orFilterWhere(['like', 'news_date', $option['search_keywords']])
                 ->all();
-        else:
-            self::$news_list = News::find()->orderBy('news_date DESC')->all();
-        endif;
+        }
         self::$news_num = count(self::$news_list, COUNT_RECURSIVE);
         self::$news_page_num = self::$news_num / 4;
         self::$current_news_page = 0;
