@@ -2,76 +2,90 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \common\models\LoginForm */
+/* @var $model \common\models\LoginForm | \common\models\SignupForm*/
 
+use frontend\models\SignupForm;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
 <div class="container">
     <div class="forms-container">
-        <div class="signin-signup">
-            <form action="#" class="sign-in-form">
-                <h2 class="title">登录</h2>
-                <div class="input-field">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="用户名" />
+        <div class="signin-signup">  
+            <?php
+                $this->title = 'Login';
+                $this->params['breadcrumbs'][] = $this->title;
+            ?>          
+            <!-- <form class="sign-in-form"> -->
+            <div class="sign-in-form">
+                <div class="site-login">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+
+                                <h2 class="title">登录</h2>
+                                <div class="input-field">
+                                    <i class="fas fa-user"></i>
+                                    <?= $form->field($model, 'username')->textInput(['type' => 'text',  'style' => 'font-size:20px;padding-top:1px; height:50px;', 'placeholder' => "用户名"])->label('') ?>
+                                </div>
+                                <div class="input-field">
+                                    <i class="fas fa-lock"></i>
+                                    <?= $form->field($model, 'password')->passwordInput(['type' => 'password', 'style' => 'font-size:20px;padding-top:1px; height:50px;', 'placeholder' => "密码"])->label('') ?>
+                                </div>
+
+                                <div class="form-group" style="text-align:center">
+                                        <?= Html::submitButton('立即登录', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                                </div>
+
+                            <?php ActiveForm::end(); ?>
+                        </div>
+                    </div>
                 </div>
-                <div class="input-field">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="密码" />
+            </div>
+            <!-- </form> -->
+           
+
+            <!-- <form class="sign-up-form"> -->
+            <div class="sign-up-form">
+                <div class="site-signup">
+
+                    <?php
+                        $this->title = 'Signup';
+                        $this->params['breadcrumbs'][] = $this->title;
+                    ?>
+                    <h2 class="title">注册</h2>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <?php $model = new SignupForm(); ?>
+                            <?php $form = ActiveForm::begin(['id' => 'form-signup','action'=>['site/signup']]); ?>
+                                    
+                                    <div class="input-field">
+                                        <i class="fas fa-user"></i>
+                                        
+                                        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                                    </div>
+                                    <div class="input-field">
+                                        <i class="fas fa-envelope"></i>
+                                        
+                                        <?= $form->field($model, 'email') ?>
+                                    </div>                                
+                                    <div class="input-field">
+                                        <i class="fas fa-lock"></i>
+                                        
+                                        <?= $form->field($model, 'password')->passwordInput() ?>
+                                    </div>
+
+                                    <div class="form-group" style="text-align:center">
+                                        <?= Html::submitButton('立即注册', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                                    </div>
+                            <?php ActiveForm::end(); ?>
+                        </div>
+                    </div>
                 </div>
-                <input type="submit" value="立即登录" class="btn solid" />
-                <p class="social-text">通过其他方式</p>
-                <div class="social-media">
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-qq"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-weixin"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-weibo"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-alipay"></i>
-                    </a>
-                </div>
-            </form>
-            <form action="#" class="sign-up-form">
-                <h2 class="title">注册</h2>
-                <div class="input-field">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="用户名" />
-                </div>
-                <div class="input-field">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" placeholder="邮箱" />
-                </div>
-                <div class="input-field">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="密码" />
-                </div>
-                <input type="submit" class="btn" value="立即注册" />
-                <p class="social-text">通过其他方式</p>
-                <div class="social-media">
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-qq"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-weixin"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-weibo"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-alipay"></i>
-                    </a>
-                </div>
-            </form>
+            </div>
+            <!-- </form> -->
         </div>
     </div>
 
@@ -101,6 +115,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <img src="../web/statics/assets/img/login/register.svg" class="image" alt="" />
         </div>
     </div>
+    
 </div>
 
 <script type="text/javascript">
@@ -110,6 +125,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     sign_up_btn.addEventListener("click", () => {
         container.classList.add("sign-up-mode");
+        <?php 
+        $model = new SignupForm(); 
+        ?>
     });
 
     sign_in_btn.addEventListener("click", () => {
@@ -117,7 +135,7 @@ $this->params['breadcrumbs'][] = $this->title;
     });
 </script>
 
-<!--<div class="site-login">-->
+<!-- <div class="site-login">-->
 <!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 <!---->
 <!--    <p>Please fill out the following fields to login:</p>-->
@@ -145,4 +163,4 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--            --><?php //ActiveForm::end(); ?>
 <!--        </div>-->
 <!--    </div>-->
-<!--</div>-->
+<!--</div> -->

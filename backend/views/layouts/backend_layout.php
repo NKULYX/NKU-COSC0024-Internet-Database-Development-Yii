@@ -470,7 +470,10 @@ AppAsset::register($this);
         </li><!-- End Register Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-login.html">
+            <!-- biandi -->
+            <!-- <a class="nav-link collapsed" href="pages-login.html"> -->
+            <a class="nav-link collapsed" href="index.php?r=site/login">
+            <!-- <a href="<?= Url::to('index.php?r=login') ?>">     -->
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Login</span>
             </a>
