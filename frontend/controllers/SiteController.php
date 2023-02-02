@@ -1,6 +1,9 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\News;
+use common\models\NewsComment;
+use frontend\models\NewsListUtil;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -84,20 +87,22 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = 'login_layout';
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
-        } else {
-            $model->password = '';
-
-            return $this->render('login', [
-                'model' => $model,
-            ]);
         }
+
+        $model->password = '';
+        return $this->render('login', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -128,11 +133,11 @@ class SiteController extends Controller
             }
 
             return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
         }
+
+        return $this->render('contact', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -152,6 +157,7 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
+        // echo 12345;
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
@@ -176,9 +182,9 @@ class SiteController extends Controller
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
 
                 return $this->goHome();
-            } else {
-                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
             }
+
+            Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
         }
 
         return $this->render('requestPasswordResetToken', [
@@ -261,12 +267,58 @@ class SiteController extends Controller
     public function actionShowNewsList()
     {
         $this->layout = 'news_layout';
+        if(Yii::$app->request->post('search_keywords')):
+            NewsListUtil::init(['search_keywords' => Yii::$app->request->post('search_keywords')]);
+        else:
+            NewsListUtil::init();
+        endif;
         return $this->render('newsList');
     }
 
-    public function actionShowNewsContent()
+    public function actionShowNewsContent($news_id)
     {
         $this->layout = 'news_layout';
-        return $this->render('newsContent');
+        $model = News::find()->where(['news_id' => $news_id])->one();
+        ++$model->news_views;
+        $model->save();
+        return $this->render('newsContent',[
+            'model' => $model
+        ]);
+    }
+
+    public function actionShowTargetNewsPage($news_page)
+    {
+        $this->layout = 'news_layout';
+        NewsListUtil::init();
+        $news_page = (int)$news_page;
+        if($news_page * 4 > NewsListUtil::$news_num):{
+            --$news_page;
+        }
+        endif;
+        NewsListUtil::$current_news_page = $news_page;
+        return $this->render('newsList');
+    }
+
+    public function actionFilterNewsSource($news_source)
+    {
+        $this->layout = 'news_layout';
+        NewsListUtil::init(['news_source' => $news_source]);
+        return $this->render('newsList');
+    }
+
+    public function actionAddNewsComment()
+    {
+        $this->layout = 'news_layout';
+        $model = new NewsComment();
+        $model->comment_news = Yii::$app->request->post('news_id');
+        $model->comment_user = Yii::$app->request->post('user_id');
+        $model->comment_content = Yii::$app->request->post('comment');
+        date_default_timezone_set('PRC');
+        $model->comment_time = date('Y-m-d H:i:s');
+        $model->save();
+        $news_content = News::find()->where(['news_id' => Yii::$app->request->post('news_id')])->one();
+        return $this->render('newsContent',[
+            'model' => $news_content
+        ]);
     }
 }

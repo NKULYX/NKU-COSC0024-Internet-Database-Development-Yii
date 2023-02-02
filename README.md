@@ -1,4 +1,9 @@
 <p align="center">
+    <img src="https://api.codiga.io/project/35487/score/svg" alt="Code Quality Score"/>
+    <img src="https://api.codiga.io/project/35487/status/svg" alt="Code Grade"/>
+</p>
+
+<p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
     </a>
