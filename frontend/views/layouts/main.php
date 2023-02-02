@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use yii\bootstrap\ActiveForm;
 
 AppAsset::register($this);
 ?>
@@ -77,13 +78,17 @@ AppAsset::register($this);
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-12 text-center">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <h4>向我们提问</h4>
+            <p>请在下方留言或提问</p>
           </div>
           <div class="col-lg-6">
-            <form action="" method="post">
+              <?= Html::beginForm('@web/index.php?r=ask%2Fask','post') ?>
+                <input type="text" class="form-control" name="question" >
+                <button type="submit" class="btn btn-primary">提交</button>
+              <?= Html::endForm() ?>
+            <!--<form action="index.php?r=ask%2Fask" method="get">
               <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+            </form>-->
           </div>
         </div>
       </div>

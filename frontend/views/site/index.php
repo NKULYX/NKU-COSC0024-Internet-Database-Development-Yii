@@ -1,4 +1,5 @@
 <?php
+use common\models\Faq;
 
 /* @var $this yii\web\View */
 
@@ -527,7 +528,7 @@ $this->title = 'My Yii Application';
 
             <header class="section-header">
                 <h2>F.A.Q</h2>
-                <p>Frequently Asked Questions</p>
+                <p>俄乌冲突问答</p>
             </header>
 
             <div class="row">
@@ -537,12 +538,20 @@ $this->title = 'My Yii Application';
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
-                                    Non consectetur a erat nam at lectus urna duis?
+                                    <?php
+                                        $id = 1;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getQuestion());
+                                    ?>
                                 </button>
                             </h2>
                             <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                                 <div class="accordion-body">
-                                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                                    <?php
+                                        $id = 1;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getAnswer());
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -550,12 +559,20 @@ $this->title = 'My Yii Application';
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
-                                    Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?
+                                <?php
+                                        $id = 2;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getQuestion());
+                                ?>
                                 </button>
                             </h2>
                             <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                                 <div class="accordion-body">
-                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                                <?php
+                                        $id = 2;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getAnswer());
+                                ?>
                                 </div>
                             </div>
                         </div>
@@ -563,12 +580,20 @@ $this->title = 'My Yii Application';
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
-                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?
+                                <?php
+                                        $id = 3;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getQuestion());
+                                ?>
                                 </button>
                             </h2>
                             <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                                 <div class="accordion-body">
-                                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                                <?php
+                                        $id = 3;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getAnswer());
+                                ?>
                                 </div>
                             </div>
                         </div>
@@ -584,12 +609,20 @@ $this->title = 'My Yii Application';
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
-                                    Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?
+                                <?php
+                                        $id = 4;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getQuestion());
+                                ?>
                                 </button>
                             </h2>
                             <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                                 <div class="accordion-body">
-                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                                <?php
+                                        $id = 4;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getAnswer());
+                                ?>
                                 </div>
                             </div>
                         </div>
@@ -597,12 +630,20 @@ $this->title = 'My Yii Application';
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-2">
-                                    Tempus quam pellentesque nec nam aliquam sem et tortor consequat?
+                                <?php
+                                        $id = 5;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getQuestion());
+                                ?>
                                 </button>
                             </h2>
                             <div id="faq2-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                                 <div class="accordion-body">
-                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                                <?php
+                                        $id = 5;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getAnswer());
+                                ?>
                                 </div>
                             </div>
                         </div>
@@ -610,12 +651,20 @@ $this->title = 'My Yii Application';
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-3">
-                                    Varius vel pharetra vel turpis nunc eget lorem dolor?
+                                <?php
+                                        $id = 6;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getQuestion());
+                                ?>
                                 </button>
                             </h2>
                             <div id="faq2-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                                 <div class="accordion-body">
-                                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+                                <?php
+                                        $id = 6;
+                                        $faq = Faq::findIdentity($id);
+                                        echo ($faq->getAnswer());
+                                ?>
                                 </div>
                             </div>
                         </div>
