@@ -30,6 +30,11 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+                        'actions' => ['signup'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
                 ],
             ],
             'verbs' => [
@@ -60,6 +65,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'backend_layout';
         return $this->render('index');
     }
 
@@ -70,7 +76,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        $this->layout = 'backend_layout';
+        
         
        if (!Yii::$app->user->isGuest) {
            return $this->goHome();
@@ -79,8 +85,9 @@ class SiteController extends Controller
        $model = new LoginForm();
        if ($model->load(Yii::$app->request->post()) && $model->login()) 
        {
-        //    return $this->goBack();
-           return $this->render('index');
+            // $this->layout = 'backend_layout';
+           return $this->goBack();
+        //    return $this->render('index');
        } else {
            $model->password = '';
 

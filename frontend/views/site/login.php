@@ -65,17 +65,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="input-field">
                                         <i class="fas fa-user"></i>
                                         
-                                        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                                        <?= $form->field($model, 'username')->textInput(['type' => 'text',  'style' => 'font-size:20px;padding-top:1px; height:50px;', 'placeholder' => "用户名"])->label('') ?>
                                     </div>
                                     <div class="input-field">
                                         <i class="fas fa-envelope"></i>
                                         
-                                        <?= $form->field($model, 'email') ?>
+                                        <?= $form->field($model, 'email')->textInput(['type' => 'email',  'style' => 'font-size:20px;padding-top:1px; height:50px;', 'placeholder' => "邮箱"])->label('') ?>
                                     </div>                                
                                     <div class="input-field">
                                         <i class="fas fa-lock"></i>
                                         
-                                        <?= $form->field($model, 'password')->passwordInput() ?>
+                                        <?= $form->field($model, 'password')->passwordInput(['type' => 'password', 'style' => 'font-size:20px;padding-top:1px; height:50px;', 'placeholder' => "密码"])->label('') ?>
                                     </div>
 
                                     <div class="form-group" style="text-align:center">
