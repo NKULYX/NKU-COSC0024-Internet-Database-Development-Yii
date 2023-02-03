@@ -384,11 +384,11 @@ $this->title = 'My Yii Application';
 
                     <div class="activity">
                         <?php $activeTab = common\models\HistoricalActivity::find()->orderBy('time DESC')->limit(6)->all();?>
-                        <?php for($i = 0;$i < count($activeTab, COUNT_RECURSIVE);$i++):?>
+                        <?php for($i = 0, $iMax = count($activeTab, COUNT_RECURSIVE); $i < $iMax; $i++):?>
                             <?php $activity = $activeTab[$i];?>
                             <?php $userName = common\models\User::find()->where(['id' => $activity->user_id])->all()[0]->username;?>
                             <div class="activity-item d-flex">
-                                <div class="activite-label"><?=$activity->time?></div>
+                                <div class="activite-label"><?=$activity->time?>&nbsp&nbsp</div>
 
                                 <?php if($activity->operation==='create'):?>
                                     <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
@@ -496,7 +496,7 @@ $this->title = 'My Yii Application';
                 <?php $newsList = \common\models\News::find()->orderBy('news_views DESC')->limit(10)->all();?>
                 let newsTitles = [];
                 let times = [];
-                <?php for($i = 0; $i < count($newsList, COUNT_RECURSIVE); $i++):?>
+                <?php for($i = 0,$iMax = count($newsList, COUNT_RECURSIVE); $i < $iMax; $i++):?>
                     <?php $news = $newsList[$i]; ?>
                     newsTitles.push("<?=$news->news_id?>");
                     times.push("<?=$news->news_views?>");
@@ -568,7 +568,7 @@ $this->title = 'My Yii Application';
                     <script>
                         <?php $sourceList = \common\models\NewsSource::find()->all();?>
                         let input = [];
-                        <?php for($i = 0; $i < count($sourceList, COUNT_RECURSIVE); $i++):?>
+                        <?php for($i = 0,$iMax = count($sourceList, COUNT_RECURSIVE); $i < $iMax; $i++):?>
                             <?php $source = $sourceList[$i]; ?>
                             input.push({
                                         value: <?= $source->getNewsNum();?>,

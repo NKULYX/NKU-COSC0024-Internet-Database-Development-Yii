@@ -379,6 +379,13 @@ AppAsset::register($this);
         </li><!-- End Forms Nav -->
 
         <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= Url::to('index.php?r=faq') ?>">
+                <i class="bi bi-question-circle"></i>
+                <span>F.A.Q</span>
+            </a>
+        </li><!-- End F.A.Q Page Nav -->
+
+        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
