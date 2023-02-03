@@ -545,18 +545,16 @@ $this->title = 'My Yii Application';
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                                     <?php
-                                        $id = 1;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getQuestion());
+                                        $faq = Faq::find()->where(['priority' => 1])->one();
+                                        echo ($faq->question);
                                     ?>
                                 </button>
                             </h2>
                             <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                                 <div class="accordion-body">
                                     <?php
-                                        $id = 1;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getAnswer());
+                                        $faq = Faq::find()->where(['priority' => 1])->one();
+                                        echo ($faq->answer);
                                     ?>
                                 </div>
                             </div>
@@ -566,18 +564,16 @@ $this->title = 'My Yii Application';
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                                 <?php
-                                        $id = 2;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getQuestion());
+                                        $faq = Faq::find()->where(['priority' => 2])->one();
+                                        echo ($faq->question);
                                 ?>
                                 </button>
                             </h2>
                             <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                                 <div class="accordion-body">
                                 <?php
-                                        $id = 2;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getAnswer());
+                                        $faq = Faq::find()->where(['priority' => 2])->one();
+                                        echo ($faq->answer);
                                 ?>
                                 </div>
                             </div>
@@ -587,18 +583,16 @@ $this->title = 'My Yii Application';
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                                 <?php
-                                        $id = 3;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getQuestion());
+                                        $faq = Faq::find()->where(['priority' => 3])->one();
+                                        echo ($faq->question);
                                 ?>
                                 </button>
                             </h2>
                             <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                                 <div class="accordion-body">
                                 <?php
-                                        $id = 3;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getAnswer());
+                                        $faq = Faq::find()->where(['priority' => 3])->one();
+                                        echo ($faq->answer);
                                 ?>
                                 </div>
                             </div>
@@ -616,18 +610,16 @@ $this->title = 'My Yii Application';
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
                                 <?php
-                                        $id = 4;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getQuestion());
+                                        $faq = Faq::find()->where(['priority' => 4])->one();
+                                        echo ($faq->question);
                                 ?>
                                 </button>
                             </h2>
                             <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                                 <div class="accordion-body">
                                 <?php
-                                        $id = 4;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getAnswer());
+                                        $faq = Faq::find()->where(['priority' => 4])->one();
+                                        echo ($faq->answer);
                                 ?>
                                 </div>
                             </div>
@@ -637,18 +629,16 @@ $this->title = 'My Yii Application';
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-2">
                                 <?php
-                                        $id = 5;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getQuestion());
+                                        $faq = Faq::find()->where(['priority' => 5])->one();
+                                        echo ($faq->question);
                                 ?>
                                 </button>
                             </h2>
                             <div id="faq2-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                                 <div class="accordion-body">
                                 <?php
-                                        $id = 5;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getAnswer());
+                                        $faq = Faq::find()->where(['priority' => 5])->one();
+                                        echo ($faq->answer);
                                 ?>
                                 </div>
                             </div>
@@ -658,18 +648,16 @@ $this->title = 'My Yii Application';
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-3">
                                 <?php
-                                        $id = 6;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getQuestion());
+                                        $faq = Faq::find()->where(['priority' => 6])->one();
+                                        echo ($faq->question);
                                 ?>
                                 </button>
                             </h2>
                             <div id="faq2-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                                 <div class="accordion-body">
                                 <?php
-                                        $id = 6;
-                                        $faq = Faq::findIdentity($id);
-                                        echo ($faq->getAnswer());
+                                        $faq = Faq::find()->where(['priority' => 6])->one();
+                                        echo ($faq->answer);
                                 ?>
                                 </div>
                             </div>

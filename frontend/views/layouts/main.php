@@ -90,7 +90,7 @@ AppAsset::register($this);
           <div class="col-lg-6">
               <?= Html::beginForm('@web/index.php?r=ask%2Fask','post') ?>
                 <input type="text" class="form-control" name="question" >
-                <button type="submit" class="btn btn-primary">提交</button>
+                <input type="submit" value="提交">
               <?= Html::endForm() ?>
             <!--<form action="index.php?r=ask%2Fask" method="get">
               <input type="email" name="email"><input type="submit" value="Subscribe">

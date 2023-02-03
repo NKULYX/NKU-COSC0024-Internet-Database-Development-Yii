@@ -1,44 +1,26 @@
 <?php
+
 namespace common\models;
 
 use Yii;
-use yii\base\NotSupportedException;
-use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveRecord;
-use yii\web\IdentityInterface;
 
 /**
- * Faq model
+ * This is the model class for table "faq".
  *
- * @property integer $id
- * @property string $question
- * @property string $answer
- * @property integer $status
- * @property string $auth_key
+ * @property int $id
+ * @property string|null $question
+ * @property string|null $answer
+ * @property int|null $status
+ * @property int|null $priority
  */
-class Faq extends ActiveRecord implements IdentityInterface
+class Faq extends \yii\db\ActiveRecord
 {
-    const STATUS_DELETED = 0;
-    const STATUS_INACTIVE = 9;
-    const STATUS_ACTIVE = 10;
-
-
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return '{{%faq}}';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            TimestampBehavior::className(),
-        ];
+        return 'faq';
     }
 
     /**
@@ -47,72 +29,31 @@ class Faq extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],   //此处有改动
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
+            [['status', 'priority'], 'integer'],
+            [['question', 'answer'], 'string', 'max' => 255],
         ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public static function findIdentity($id)
+    public function attributeLabels()
     {
-        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+        return [
+            'id' => 'ID',
+            'question' => 'Question',
+            'answer' => 'Answer',
+            'status' => 'Status',
+            'priority' => 'Priority',
+        ];
     }
 
     /**
      * {@inheritdoc}
+     * @return FaqQuery the active query used by this AR class.
      */
-    public static function findIdentityByAccessToken($token, $type = null)
+    public static function find()
     {
-        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getId()
-    {
-        return $this->getPrimaryKey();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAuthKey()
-    {
-        return $this->auth_key;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function validateAuthKey($authKey)
-    {
-        return $this->getAuthKey() === $authKey;
-    }
-
-    /**
-     * Generates "remember me" authentication key
-     */
-    public function generateAuthKey()
-    {
-        $this->auth_key = Yii::$app->security->generateRandomString();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getQuestion()
-    {
-        return $this->question;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAnswer()
-    {
-        return $this->answer;
+        return new FaqQuery(get_called_class());
     }
 }
