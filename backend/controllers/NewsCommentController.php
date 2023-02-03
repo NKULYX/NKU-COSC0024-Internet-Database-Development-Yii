@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\RecordUtil;
 use Yii;
 use common\models\NewsComment;
 use common\models\NewsCommentSearch;
@@ -93,6 +94,9 @@ class NewsCommentController extends Controller
         if (Yii::$app->request->post('is_update')) {
             $model->comment_content = Yii::$app->request->post('comment_content');
             $model->save();
+
+            RecordUtil::generateRecord('news_comment', 'update');
+
             return $this->redirect(['view', 'id' => $model->comment_id]);
         }
 
@@ -112,6 +116,8 @@ class NewsCommentController extends Controller
     {
         $this->layout = 'backend_layout';
         $this->findModel($id)->delete();
+
+        RecordUtil::generateRecord('news_comment', 'delete');
 
         return $this->redirect(['index']);
     }
