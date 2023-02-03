@@ -156,7 +156,7 @@ AppAsset::register($this);
 
                     <li class="message-item">
                         <a href="#">
-                            <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                            <img src=".../.../.../assets/img/messages-1.jpg" alt="" class="rounded-circle">
                             <div>
                                 <h4>Maria Hudson</h4>
                                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -207,14 +207,30 @@ AppAsset::register($this);
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    <img src="../../common/static/images/users/default2.png" alt="Profile" class="rounded-circle">
+
+                    <?php if (Yii::$app->user->isGuest) { ?>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    <?php } else { ?>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">
+                            <?= Yii::$app->user->identity->username ?>
+                        </span>
+                    <?php } ?>
+
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
+                    <?php if (Yii::$app->user->isGuest) { ?>
                         <h6>Kevin Anderson</h6>
                         <span>Web Designer</span>
+                    <?php } else { ?>
+                        <h6>
+                            <?= Yii::$app->user->identity->username ?>
+                        </h6>
+                        <span>Web User</span>
+                    <?php } ?>
+
                     </li>
                     <li>
                         <hr class="dropdown-divider">
@@ -250,12 +266,32 @@ AppAsset::register($this);
                         <hr class="dropdown-divider">
                     </li>
 
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                    <?php if (Yii::$app->user->isGuest) { ?>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Sign Out</span>
+                            </a>
+                        </li>
+                    <?php } else { ?>
+
+                        <li class="dropdown-item d-flex align-items-center">
                             <i class="bi bi-box-arrow-right"></i>
-                            <span>Sign Out</span>
-                        </a>
-                    </li>
+                            <?= Html::beginForm(['/site/logout'], 'post') ?>
+                            <?= Html::submitButton('Sign Out',
+                            ['class' => 'btn',
+                            'style'=>'
+                            font-size: 14px;
+                            font-weight: 400;
+                            width:240px
+                            height:40px
+                            color: #333333;
+                            white-space: nowrap;']) ?>
+                            <?= Html::endForm() ?>
+                        </li>
+          
+                    <?php } ?>
+
 
                 </ul><!-- End Profile Dropdown Items -->
             </li><!-- End Profile Nav -->
@@ -376,7 +412,7 @@ AppAsset::register($this);
                     </a>
                 </li>
             </ul>
-        </li><!-- End Forms Nav -->
+        </li><!-- End News Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
@@ -442,6 +478,20 @@ AppAsset::register($this);
             </ul>
         </li><!-- End Icons Nav -->
 
+        <li class="nav-item">
+            <a class="nav-link collapsed"  href="<?= Url::to('index.php?r=user') ?>">
+                <i class="bi bi-person"></i><span>Users</span>
+            </a>
+            <ul id="users-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="<?= Url::to('index.php?r=user') ?>">
+                        <i class="bi bi-circle"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Users Nav -->
+
         <li class="nav-heading">Pages</li>
 
         <li class="nav-item">
@@ -474,8 +524,8 @@ AppAsset::register($this);
 
         <li class="nav-item">
             <!-- biandi -->
-            <!-- <a class="nav-link collapsed" href="pages-login.html"> -->
-            <a class="nav-link collapsed" href="index.php?r=site/login">
+            <a class="nav-link collapsed" href="pages-login.html">
+            <!-- <a class="nav-link collapsed" href="index.php?r=site/login"> -->
             <!-- <a href="<?= Url::to('index.php?r=login') ?>">     -->
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Login</span>
@@ -524,3 +574,4 @@ AppAsset::register($this);
 </body>
 </html>
 <?php $this->endPage() ?>
+
