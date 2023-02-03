@@ -1,5 +1,4 @@
 <?php
-
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
@@ -200,7 +199,7 @@ $this->title = 'My Yii Application';
                                             x: {
                                                 format: 'dd/MM/yy HH:mm'
                                             },
-                                        }
+                                        }F.A.Q
                                     }).render();
                                 });
                             </script>
@@ -367,7 +366,7 @@ $this->title = 'My Yii Application';
 
             <!-- Recent Activity -->
             <div class="card">
-                <div class="filter">
+                <!-- <div class="filter">
                     <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                         <li class="dropdown-header text-start">
@@ -378,60 +377,44 @@ $this->title = 'My Yii Application';
                         <li><a class="dropdown-item" href="#">This Month</a></li>
                         <li><a class="dropdown-item" href="#">This Year</a></li>
                     </ul>
-                </div>
+                </div> -->
 
                 <div class="card-body">
-                    <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+                    <h5 class="card-title">Recent Activity</h5>
 
                     <div class="activity">
+                        <?php $activeTab = common\models\HistoricalActivity::find()->orderBy('time DESC')->limit(6)->all();?>
+                        <?php for($i = 0;$i < count($activeTab, COUNT_RECURSIVE);$i++):?>
+                            <?php $activity = $activeTab[$i];?>
+                            <?php $userName = common\models\User::find()->where(['id' => $activity->user_id])->all()[0]->username;?>
+                            <div class="activity-item d-flex">
+                                <div class="activite-label"><?=$activity->time?></div>
 
-                        <div class="activity-item d-flex">
-                            <div class="activite-label">32 min</div>
-                            <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                            <div class="activity-content">
-                                Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
-                            </div>
-                        </div><!-- End activity item-->
+                                <?php if($activity->operation==='create'):?>
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                <?php elseif($activity->operation==='delete'):?>
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                <?php elseif($activity->operation==='update'):?>
+                                    <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
+                                <?php else:?>
+                                    <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
+                                <?php endif?>
 
-                        <div class="activity-item d-flex">
-                            <div class="activite-label">56 min</div>
-                            <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                            <div class="activity-content">
-                                Voluptatem blanditiis blanditiis eveniet
-                            </div>
-                        </div><!-- End activity item-->
-
-                        <div class="activity-item d-flex">
-                            <div class="activite-label">2 hrs</div>
-                            <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                            <div class="activity-content">
-                                Voluptates corrupti molestias voluptatem
-                            </div>
-                        </div><!-- End activity item-->
-
-                        <div class="activity-item d-flex">
-                            <div class="activite-label">1 day</div>
-                            <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                            <div class="activity-content">
-                                Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
-                            </div>
-                        </div><!-- End activity item-->
-
-                        <div class="activity-item d-flex">
-                            <div class="activite-label">2 days</div>
-                            <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                            <div class="activity-content">
-                                Est sit eum reiciendis exercitationem
-                            </div>
-                        </div><!-- End activity item-->
-
-                        <div class="activity-item d-flex">
-                            <div class="activite-label">4 weeks</div>
-                            <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                            <div class="activity-content">
-                                Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                            </div>
-                        </div><!-- End activity item-->
+                                <div class="activity-content">
+                                    <?=$userName?>
+                                    <?php if($activity->operation==='create'):?>
+                                        <a href="#" class="fw-bold text-success">created</a>
+                                    <?php elseif($activity->operation==='delete'):?>
+                                        <a href="#" class="fw-bold text-danger">deleted</a>
+                                    <?php elseif($activity->operation==='update'):?>
+                                        <a href="#" class="fw-bold text-primary">updated</a>
+                                    <?php else:?>
+                                        <a href="#" class="fw-bold text-info">modified</a>
+                                    <?php endif?>
+                                    <?=$activity->table_name?>
+                                </div>
+                            </div><!-- End activity item-->
+                        <?php endfor?>
 
                     </div>
 
@@ -440,7 +423,7 @@ $this->title = 'My Yii Application';
 
             <!-- Budget Report -->
             <div class="card">
-                <div class="filter">
+                <!-- <div class="filter">
                     <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                         <li class="dropdown-header text-start">
@@ -451,14 +434,14 @@ $this->title = 'My Yii Application';
                         <li><a class="dropdown-item" href="#">This Month</a></li>
                         <li><a class="dropdown-item" href="#">This Year</a></li>
                     </ul>
-                </div>
+                </div> -->
 
                 <div class="card-body pb-0">
-                    <h5 class="card-title">Budget Report <span>| This Month</span></h5>
+                    <h5 class="card-title">Visiting Statistics</h5>
 
-                    <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
+                    <!-- <div id="budgetChart" style="min-height: 400px;" class="echart"></div> -->
 
-                    <script>
+                    <!-- <script>
                         document.addEventListener("DOMContentLoaded", () => {
                             var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
                                 legend: {
@@ -507,14 +490,64 @@ $this->title = 'My Yii Application';
                                 }]
                             });
                         });
-                    </script>
+                    </script> -->
+                    <canvas id="barChart" style="max-height: 400px;"></canvas>
+              <script>
+                <?php $newsList = \common\models\News::find()->orderBy('news_views DESC')->limit(10)->all();?>
+                let newsTitles = [];
+                let times = [];
+                <?php for($i = 0; $i < count($newsList, COUNT_RECURSIVE); $i++):?>
+                    <?php $news = $newsList[$i]; ?>
+                    newsTitles.push("<?=$news->news_id?>");
+                    times.push("<?=$news->news_views?>");
+                <?php endfor?>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new Chart(document.querySelector('#barChart'), {
+                    type: 'bar',
+                    data: {
+                      labels: newsTitles,
+                      datasets: [{
+                        label: 'views',
+                        data: times,
+                        backgroundColor: [
+                          'rgba(255, 99, 132, 0.2)',
+                          'rgba(255, 159, 64, 0.2)',
+                          'rgba(255, 205, 86, 0.2)',
+                          'rgba(75, 192, 192, 0.2)',
+                          'rgba(54, 162, 235, 0.2)',
+                          'rgba(153, 102, 255, 0.2)',
+                          'rgba(201, 203, 207, 0.2)'
+                        ],
+                        borderColor: [
+                          'rgb(255, 99, 132)',
+                          'rgb(255, 159, 64)',
+                          'rgb(255, 205, 86)',
+                          'rgb(75, 192, 192)',
+                          'rgb(54, 162, 235)',
+                          'rgb(153, 102, 255)',
+                          'rgb(201, 203, 207)'
+                        ],
+                        borderWidth: 1
+                      }]
+                    },
+                    options: {
+                      scales: {
+                        y: {
+                          beginAtZero: true
+                        }
+                      }
+                    }
+                  });
+                });
+              </script>
+              <!-- End Bar CHart -->
 
                 </div>
             </div><!-- End Budget Report -->
 
             <!-- Website Traffic -->
             <div class="card">
-                <div class="filter">
+                <!-- <div class="filter">
                     <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                         <li class="dropdown-header text-start">
@@ -525,14 +558,23 @@ $this->title = 'My Yii Application';
                         <li><a class="dropdown-item" href="#">This Month</a></li>
                         <li><a class="dropdown-item" href="#">This Year</a></li>
                     </ul>
-                </div>
+                </div> -->
 
                 <div class="card-body pb-0">
-                    <h5 class="card-title">Website Traffic <span>| Today</span></h5>
+                    <h5 class="card-title">Source Statistics</h5>
 
                     <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
 
                     <script>
+                        <?php $sourceList = \common\models\NewsSource::find()->all();?>
+                        let input = [];
+                        <?php for($i = 0; $i < count($sourceList, COUNT_RECURSIVE); $i++):?>
+                            <?php $source = $sourceList[$i]; ?>
+                            input.push({
+                                        value: <?= $source->getNewsNum();?>,
+                                        name: '<?= $source->source_name;?>'
+                                    });
+                        <?php endfor?>
                         document.addEventListener("DOMContentLoaded", () => {
                             echarts.init(document.querySelector("#trafficChart")).setOption({
                                 tooltip: {
@@ -561,27 +603,7 @@ $this->title = 'My Yii Application';
                                     labelLine: {
                                         show: false
                                     },
-                                    data: [{
-                                        value: 1048,
-                                        name: 'Search Engine'
-                                    },
-                                        {
-                                            value: 735,
-                                            name: 'Direct'
-                                        },
-                                        {
-                                            value: 580,
-                                            name: 'Email'
-                                        },
-                                        {
-                                            value: 484,
-                                            name: 'Union Ads'
-                                        },
-                                        {
-                                            value: 300,
-                                            name: 'Video Ads'
-                                        }
-                                    ]
+                                    data: input
                                 }]
                             });
                         });

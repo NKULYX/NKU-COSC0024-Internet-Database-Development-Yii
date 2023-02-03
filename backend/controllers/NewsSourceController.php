@@ -83,9 +83,11 @@ class NewsSourceController extends Controller
             }
             var_dump($model);
             $model->save();
+
+            RecordUtil::generateRecord('news_source', 'create');
+
             return $this->redirect(['view', 'id' => $model->source_name]);
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -118,6 +120,9 @@ class NewsSourceController extends Controller
                 }
             }
             $model->save();
+
+            RecordUtil::generateRecord('news_source', 'update');
+
             return $this->redirect(['view', 'id' => $model->source_name]);
         }
 
@@ -137,6 +142,8 @@ class NewsSourceController extends Controller
     {
         $this->layout = 'backend_layout';
         $this->findModel($id)->delete();
+
+        RecordUtil::generateRecord('news_source', 'delete');
 
         return $this->redirect(['index']);
     }

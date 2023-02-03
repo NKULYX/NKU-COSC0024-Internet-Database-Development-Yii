@@ -85,9 +85,9 @@ class SiteController extends Controller
        $model = new LoginForm();
        if ($model->load(Yii::$app->request->post()) && $model->login()) 
        {
-            // $this->layout = 'backend_layout';
+           // $this->layout = 'backend_layout';
            return $this->goBack();
-        //    return $this->render('index');
+           // return $this->render('index');
        } else {
            $model->password = '';
 

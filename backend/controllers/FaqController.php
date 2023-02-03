@@ -3,18 +3,17 @@
 namespace backend\controllers;
 
 use backend\models\RecordUtil;
-use common\models\HistoricalActivity;
 use Yii;
-use common\models\News;
-use common\models\NewsSearch;
+use common\models\Faq;
+use common\models\FaqSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * NewsController implements the CRUD actions for News model.
+ * FaqController implements the CRUD actions for Faq model.
  */
-class NewsController extends Controller
+class FaqController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -32,13 +31,13 @@ class NewsController extends Controller
     }
 
     /**
-     * Lists all News models.
+     * Lists all Faq models.
      * @return mixed
      */
     public function actionIndex()
     {
         $this->layout = 'backend_layout';
-        $searchModel = new NewsSearch();
+        $searchModel = new FaqSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -48,7 +47,7 @@ class NewsController extends Controller
     }
 
     /**
-     * Displays a single News model.
+     * Displays a single Faq model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -62,36 +61,25 @@ class NewsController extends Controller
     }
 
     /**
-     * Creates a new News model.
+     * Creates a new Faq model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        
         $this->layout = 'backend_layout';
-        $model = new News();
-        
+        $model = new Faq();
+
         if (Yii::$app->request->post('is_create')) {
-            $model->news_title = Yii::$app->request->post('news_title');
-            $model->news_abstract = Yii::$app->request->post('news_abstract');
-            $model->news_content = Yii::$app->request->post('news_content');
-            $model->news_date = Yii::$app->request->post('news_date');
-            $model->news_source = Yii::$app->request->post('news_source');
-            $model->news_photo = 'tmp';
-            $model->save();
-            $model = News::find()->orderBy('news_id DESC')->limit(1)->one();
-            $suffix = (explode('.', $_FILES['file']['name']))[1];
-            $filename = 'news-' . $model->news_id . '.' . $suffix;
-            $temp_name = $_FILES['file']['tmp_name'];
-            if (move_uploaded_file($temp_name, '../../common/static/images/news/'.$filename)){
-                $model->news_photo = $filename;
-            }
+            $model->question = Yii::$app->request->post('question');
+            $model->answer = Yii::$app->request->post('answer');
+            $model->status = Yii::$app->request->post('status');
+            $model->priority = Yii::$app->request->post('priority');
             $model->save();
 
-            RecordUtil::generateRecord('news', 'create');
+            RecordUtil::generateRecord('faq', 'create');
 
-            return $this->redirect(['view', 'id' => $model->news_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -100,7 +88,7 @@ class NewsController extends Controller
     }
 
     /**
-     * Updates an existing News model.
+     * Updates an existing Faq model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -112,24 +100,16 @@ class NewsController extends Controller
         $model = $this->findModel($id);
 
         if (Yii::$app->request->post('is_update')) {
-            $model->news_title = Yii::$app->request->post('news_title');
-            $model->news_abstract = Yii::$app->request->post('news_abstract');
-            $model->news_content = Yii::$app->request->post('news_content');
-            $model->news_date = Yii::$app->request->post('news_date');
-            $model->news_source = Yii::$app->request->post('news_source');
-            if($_FILES['file']['name'] !== "") {
-                $suffix = (explode('.', $_FILES['file']['name']))[1];
-                $filename = explode('.', $model->news_photo)[0] . '.' . $suffix;
-                $temp_name = $_FILES['file']['tmp_name'];
-                if (move_uploaded_file($temp_name, '../../common/static/images/news/'.$filename)){
-                    $model->news_photo = $filename;
-                }
-            }
+            $model->question = Yii::$app->request->post('question');
+            $model->answer = Yii::$app->request->post('answer');
+            $model->status = Yii::$app->request->post('status');
+            $model->priority = Yii::$app->request->post('priority');
             $model->save();
-            return $this->redirect(['view', 'id' => $model->news_id]);
-        }
 
-        RecordUtil::generateRecord('news', 'update');
+            RecordUtil::generateRecord('faq', 'update');
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
 
         return $this->render('update', [
             'model' => $model,
@@ -137,7 +117,7 @@ class NewsController extends Controller
     }
 
     /**
-     * Deletes an existing News model.
+     * Deletes an existing Faq model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -145,29 +125,26 @@ class NewsController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->layout = 'backend_layout';
         $this->findModel($id)->delete();
 
-        RecordUtil::generateRecord('news', 'delete');
+        RecordUtil::generateRecord('faq', 'delete');
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the News model based on its primary key value.
+     * Finds the Faq model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return News the loaded model
+     * @return Faq the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = News::findOne($id)) !== null) {
+        if (($model = Faq::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
-
 }
