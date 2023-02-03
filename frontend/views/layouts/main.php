@@ -63,11 +63,36 @@ AppAsset::register($this);
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <!-- biandi -->
           <!-- <li><a class="getstarted scrollto" href="#about">Login</a></li> -->
-            <li><?= Html::a('Login', ['site/login']) ?></li>
-            <li><?= Html::a('Logout', ['site/logout']) ?></li>
+          <?php  if (Yii::$app->user->isGuest) { ?>
 
-          
-          <!-- biandi -->
+            <?= Html::a('Login', ['site/login'],['class'=>'getstarted scrollto']) ?>
+
+          <?php } else { ?>
+
+            <li class="nav-link scrollto">
+              <?= Html::beginForm(['/site/logout'], 'post') ?>
+              <?= Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')',
+              ['class' => 'btn',
+              'style' => 
+              'display: flex;
+              align-items: center;
+              justify-content: space-between;
+              font-family: "Nunito", sans-serif;
+              font-size: 16px;
+              font-weight: 700;
+              color: #013289;
+              white-space: nowrap;
+
+              background: #4154f1;
+              padding: 8px 20px;
+              margin-left: 30px;
+              border-radius: 4px;
+              color: #fff;']) ?>
+              <!-- <?= Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')',['class' => 'btn-logout']) ?> -->
+              <?= Html::endForm() ?>
+            </li>
+            
+          <?php }  ?>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
