@@ -1188,14 +1188,14 @@ $this->title = 'My Yii Application';
                 </div>
 
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                    <div class="member">
+                    <div class="member" url="https://ching-yee-chan.github.io">
                         <div class="member-img">
                             <img src="../../common/static/images/team/zjk.jpg" class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
                             <h4>赵健坤</h4>
                             <span>组员 · 2010535</span>
-                            <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
+                            <p>负责完成了提问、回答与FAQ展示的前后台功能模块，后台修改记录、新闻来源和访问量的统计数据</p>
                         </div>
                     </div>
                 </div>
