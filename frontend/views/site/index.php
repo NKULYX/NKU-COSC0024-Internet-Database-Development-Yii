@@ -1175,29 +1175,33 @@ $this->title = 'My Yii Application';
             <div class="row gy-4">
 
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                    <div class="member">
-                        <div class="member-img">
-                            <img src="../../common/static/images/team/lyx.jpg" class="img-fluid" alt="">
+                    <a href="https://nkulyx.github.io">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="../../common/static/images/team/lyx.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="member-info">
+                                <h4>刘宇轩</h4>
+                                <span>组长 · 2012677</span>
+                                <p>负责团队的分工协调和进度把控，完成前后台模板的合并和微调工作，前后台新闻模块的实现，新闻筛选搜索</p>
+                            </div>
                         </div>
-                        <div class="member-info">
-                            <h4>刘宇轩</h4>
-                            <span>组长 · 2012677</span>
-                            <p>负责团队的分工协调和进度把控，完成前后台模板的合并和微调工作，前后台新闻模块的实现，新闻筛选搜索</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                    <div class="member" url="https://ching-yee-chan.github.io">
-                        <div class="member-img">
-                            <img src="../../common/static/images/team/zjk.jpg" class="img-fluid" alt="">
+                    <a href="https://ching-yee-chan.github.io">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="../../common/static/images/team/zjk.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="member-info">
+                                <h4>赵健坤</h4>
+                                <span>组员 · 2010535</span>
+                                <p>负责完成了提问、回答与FAQ展示的前后台功能模块，后台修改记录、新闻来源和访问量的统计数据</p>
+                            </div>
                         </div>
-                        <div class="member-info">
-                            <h4>赵健坤</h4>
-                            <span>组员 · 2010535</span>
-                            <p>负责完成了提问、回答与FAQ展示的前后台功能模块，后台修改记录、新闻来源和访问量的统计数据</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
