@@ -35,7 +35,6 @@ AppAsset::register($this);
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto" href="index.php#hero">Home</a></li>
-                <li><a class="nav-link scrollto" href="index.php#about">About</a></li>
                 <li><a class="nav-link scrollto active" href="index.php#news">News</a></li>
                 <li><a class="nav-link scrollto" href="index.php#gallery">Gallery</a></li>
                 <li><a class="nav-link scrollto" href="index.php#comments">Comments</a></li>
