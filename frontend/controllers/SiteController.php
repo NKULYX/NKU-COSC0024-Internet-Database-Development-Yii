@@ -17,6 +17,8 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\Gallery;
+use common\models\Price;
 
 /**
  * Site controller
@@ -320,6 +322,24 @@ class SiteController extends Controller
         $news_content = News::find()->where(['news_id' => Yii::$app->request->post('news_id')])->one();
         return $this->render('newsContent',[
             'model' => $news_content
+        ]);
+    }
+
+    public function actionShowGalleryDetails($gallery_id)
+    {
+        $this->layout = 'main';
+        $model = Gallery::findIdentity($gallery_id);
+        return $this->render('GalleryDetails',[
+            'model' => $model
+        ]);
+    }
+
+    public function actionShowPriceDetails($price_id)
+    {
+        $this->layout = 'main';
+        $model = Price::findIdentity($price_id);
+        return $this->render('PriceDetails',[
+            'model' => $model
         ]);
     }
 }
