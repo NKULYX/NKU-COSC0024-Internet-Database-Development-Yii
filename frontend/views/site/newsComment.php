@@ -85,7 +85,7 @@ $this->title = 'My Yii Application';
             </div>
         </div>
         <input type="hidden" name="news_id" value="<?=$model->news_id?>">
-        <input type="hidden" name="user_id" value="1">
+        <input type="hidden" name="user_id" value="<?=Yii::$app->user->id?>">
         <button type="submit" class="btn btn-primary">Post Comment</button>
     <?= Html::endForm() ?>
 
