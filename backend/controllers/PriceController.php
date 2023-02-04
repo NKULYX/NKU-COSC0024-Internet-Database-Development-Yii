@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\RecordUtil;
 use Yii;
 use common\models\Price;
 use common\models\PriceSearch;
@@ -87,6 +88,9 @@ class PriceController extends Controller
                 $model->img_path = $filename;
             }
             $model->save();
+
+            RecordUtil::generateRecord('price', 'create');
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -124,6 +128,9 @@ class PriceController extends Controller
                 }
             }
             $model->save();
+
+            RecordUtil::generateRecord('price', 'update');
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -143,6 +150,7 @@ class PriceController extends Controller
     {
         $this->layout = 'backend_layout';
         $this->findModel($id)->delete();
+        RecordUtil::generateRecord('price', 'delete');
 
         return $this->redirect(['index']);
     }

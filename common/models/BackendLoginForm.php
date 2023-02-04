@@ -47,7 +47,7 @@ class BackendLoginForm extends Model
             }
             else if(!$user->isAdministrator())
             {
-                $this->addError($attribute, 'Sorry.You do not have administrator privileges.');
+                $this->addError($attribute, 'You do not have administrator privileges.');
             }
         }
     }

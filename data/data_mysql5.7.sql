@@ -95,6 +95,7 @@ INSERT INTO `historical_activity` VALUES (9, 1, '2023-02-04 10:10:44', 'news', '
 INSERT INTO `historical_activity` VALUES (10, 1, '2023-02-04 10:23:11', 'news', 'update');
 INSERT INTO `historical_activity` VALUES (11, 1, '2023-02-04 10:23:17', 'news', 'update');
 INSERT INTO `historical_activity` VALUES (12, 3, '2023-02-04 15:11:23', 'news_comment', 'update');
+INSERT INTO `historical_activity` VALUES (13, 4, '2023-02-05 00:03:32', 'price', 'update');
 
 -- ----------------------------
 -- Table structure for migration
@@ -238,7 +239,7 @@ CREATE TABLE `price`  (
 -- ----------------------------
 -- Records of price
 -- ----------------------------
-INSERT INTO `price` VALUES (1, '原油', 92.00, '桶', 'price-1.jpg', '2022年3月布伦特原油平均价格为每桶116美元，为2013年以来最高。乌克兰战争已开始扰乱俄罗斯的石油出口。包括加拿大、英国和美国在内的若干国家宣布了立即禁止或逐步停止从俄罗斯进口石油的计划，很多贸易商已在避免购买俄罗斯石油。预计2022年油价平均为每桶100美元，然后在2023年小幅下降至每桶92美元。', 1, '能源', '原油价格升至2013年以来最高水平');
+INSERT INTO `price` VALUES (1, '原油', 93.00, '桶', 'price-1.jpg', '2022年3月布伦特原油平均价格为每桶116美元，为2013年以来最高。乌克兰战争已开始扰乱俄罗斯的石油出口。包括加拿大、英国和美国在内的若干国家宣布了立即禁止或逐步停止从俄罗斯进口石油的计划，很多贸易商已在避免购买俄罗斯石油。预计2022年油价平均为每桶100美元，然后在2023年小幅下降至每桶92美元。', 1, '能源', '原油价格升至2013年以来最高水平');
 INSERT INTO `price` VALUES (2, '钯', 2589.00, '盎司', 'price-2.jpg', '俄乌战争推高了金属价格，因为越来越多的美国和欧洲公司切断了与生产铝、镍和钯的俄罗斯企业的联系。俄罗斯是世界上最大的镍和钯生产商 Norilsk Nickel 的所在地，而汽车制造商使用的金属材料中，有 40% 来自俄罗斯公司。除了用于制造触媒转换器的钯，镍价格也创纪录地达到过每吨10万美元，铝价格也达到了历史新高，到了每吨约3328美元。', 1, '金属', '俄乌战争使金属价格疯涨，恐再度推高新车价格');
 INSERT INTO `price` VALUES (3, '尿素', 907.89, '吨', 'price-3.jpg', '作为全球最大的化肥供应商之一，俄罗斯的化肥出口由于其他国家的制裁受到巨大影响，许多航运公司因害怕受到制裁而拒绝运输俄罗斯货物，再加上一系列本就存在的因素，如全球供应链中断、中国出口禁令和加拿大铁路罢工等，导致了化肥价格的飙升。据国际肥料工业联合会(IFA)预计，2022年全球化肥投放量将比去年减少至多7%，其中亚洲和非洲的下降尤其明显。', 1, '化肥', '俄乌战争冲击全球供应，化肥价格升至历史新高');
 INSERT INTO `price` VALUES (4, '玉米', 8.14, '期货', 'price-4.jpg', '提高农业生产效率所必不可少的化肥价格正遭遇暴涨。俄罗斯和白俄罗斯握有世界化肥原材料产量的四成份额，但两国因俄乌冲突而遭受制裁，相关出口受到影响，由于化肥进口停滞，亚洲和非洲的新兴国家、发展中国家很可能出现农作物减产。同时，俄罗斯和乌克兰是全球粮食的重要产地，数据显示，俄乌的小麦出口量总共占了全球小麦出口量的近30%，占欧盟小麦总进口量更是超过50%。这也将引发食品价格居高不下的连锁反应。', 1, '粮食', '俄乌冲突引发粮食供应担忧');
@@ -268,9 +269,10 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'admin', 'dOukCdzkuR_bNC7m5w4MX7dIM8-xpDU0', '$2y$13$qGr496xWJUI3JNCDKWTz1uGLFd3vl2mEwwbv2lDrdhA0UZv68D2k6', NULL, 'admin@gmail.com', 9, 1674014197, 1674014197, 'IIlCzFSOBKAV61Q-pBPVXdiSrcBW2AcB_1674014197', 0);
-INSERT INTO `user` VALUES (2, 'test', '8WxDxmV_G65cMPJin4-bP8DIPhiiHeX3', '$2y$13$qSFtv0a8j9/xdth6lUC9HuYtDOUwNUSxnUWjncto4nrhn/is.ntqO', NULL, 'test@gmail.com', 9, 1674014280, 1674014280, 'uRXxQH0WoMe7BIjWfAr6dariEW_hFwFI_1674014280', 0);
-INSERT INTO `user` VALUES (3, 'user', 'W0ntFZEWpQd8UBTsSxJD8w119azHHlus', '$2y$13$9g/xDBc31hGcVwAsseVzduJdMW6euHXVxPUA9trrcRY7dlmQUROZ.', NULL, 'user@gmain.com', 10, 1675474822, 1675474822, 'lyIN5fYN65AlTk_5valgZI-PcPLjUK0a_1675474822', 1);
+INSERT INTO `user` VALUES (1, 'admin', 'dOukCdzkuR_bNC7m5w4MX7dIM8-xpDU0', '$2y$13$tyAaDKSNeoqImx7r3eKIuedpSANxoyzAvv30JxhyNdXreCxJ7CaLG', 'uClvX1oKNbKVCykeuk4BimMBZfejNprA_1675525876', 'admin@gmail.com', 10, 1674014197, 1675525876, 'IIlCzFSOBKAV61Q-pBPVXdiSrcBW2AcB_1674014197', 0);
+INSERT INTO `user` VALUES (2, 'test', '8WxDxmV_G65cMPJin4-bP8DIPhiiHeX3', '$2y$13$qSFtv0a8j9/xdth6lUC9HuYtDOUwNUSxnUWjncto4nrhn/is.ntqO', NULL, 'test@gmail.com', 10, 1674014280, 1674014280, 'uRXxQH0WoMe7BIjWfAr6dariEW_hFwFI_1674014280', 0);
+INSERT INTO `user` VALUES (3, 'user', 'W0ntFZEWpQd8UBTsSxJD8w119azHHlus', '$2y$13$9g/xDBc31hGcVwAsseVzduJdMW6euHXVxPUA9trrcRY7dlmQUROZ.', NULL, 'user@gmain.com', 10, 1675474822, 1675524673, 'lyIN5fYN65AlTk_5valgZI-PcPLjUK0a_1675474822', 1);
+INSERT INTO `user` VALUES (4, 'root', '-MbGxKSd7MVMehBj_JEZtKBVovo_jGm_', '$2y$13$k2hH0ipzEV6SaaCAAxm5re5FtBcQUuZ.Og.uzlnMJL/NTnvt8mDk.', NULL, 'root@gmail.com', 10, 1675526325, 1675526350, 'o0R1EwEPDf2ySlAkoU_EHDqHGPI6xdUE_1675526325', 1);
 
 -- ----------------------------
 -- Table structure for visits

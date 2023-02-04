@@ -1175,7 +1175,7 @@ $this->title = 'My Yii Application';
             <div class="row gy-4">
 
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                    <a href="https://nkulyx.github.io">
+                    <a href="https://nkulyx.github.io" target="_blank">
                         <div class="member">
                             <div class="member-img">
                                 <img src="../../common/static/images/team/lyx.jpg" class="img-fluid" alt="">
@@ -1190,7 +1190,7 @@ $this->title = 'My Yii Application';
                 </div>
 
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                    <a href="https://ching-yee-chan.github.io">
+                    <a href="https://ching-yee-chan.github.io" target="_blank">
                         <div class="member">
                             <div class="member-img">
                                 <img src="../../common/static/images/team/zjk.jpg" class="img-fluid" alt="">

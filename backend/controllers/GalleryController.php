@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\RecordUtil;
 use Yii;
 use common\models\Gallery;
 use common\models\GallerySearch;
@@ -86,6 +87,9 @@ class GalleryController extends Controller
                 $model->path = $filename;
             }
             $model->save();
+
+            RecordUtil::generateRecord('gallery', 'create');
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -122,6 +126,9 @@ class GalleryController extends Controller
                 }
             }
             $model->save();
+
+            RecordUtil::generateRecord('gallery', 'update');
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -141,6 +148,7 @@ class GalleryController extends Controller
     {
         $this->layout = 'backend_layout';
         $this->findModel($id)->delete();
+        RecordUtil::generateRecord('gallery', 'delete');
 
         return $this->redirect(['index']);
     }

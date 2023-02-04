@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\RecordUtil;
 use Yii;
 use common\models\User;
 use common\models\UserSearch;
@@ -78,6 +79,9 @@ class UserController extends Controller
             $model->generateAuthKey();
             $model->generateEmailVerificationToken();
             $model->save();
+
+            RecordUtil::generateRecord('user', 'create');
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('create', [
@@ -101,6 +105,7 @@ class UserController extends Controller
         {
             $model->username = Yii::$app->request->post('username');
             $model->save();
+            RecordUtil::generateRecord('user', 'update');
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -125,6 +130,7 @@ class UserController extends Controller
         {
             $model->purview = Yii::$app->request->post('purview');
             $model->save();
+            RecordUtil::generateRecord('user', 'update');
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [
@@ -149,6 +155,7 @@ class UserController extends Controller
             $model->setPassword(Yii::$app->request->post('password'));
             $model->generatePasswordResetToken();
             $model->save();
+            RecordUtil::generateRecord('user', 'update');
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [
@@ -167,6 +174,7 @@ class UserController extends Controller
     {
         $this->layout = 'backend_layout';
         $this->findModel($id)->delete();
+        RecordUtil::generateRecord('user', 'delete');
 
         return $this->redirect(['index']);
     }

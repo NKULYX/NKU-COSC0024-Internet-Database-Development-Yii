@@ -156,14 +156,14 @@ AppAsset::register($this);
         <li class="nav-item">
             <a class="nav-link collapsed" href="<?= Url::to('index.php?r=price') ?>">
                 <i class="bi bi-gem"></i>
-                <span>Price Issues</span>
+                <span>Price</span>
             </a>
         </li><!-- End Price Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="<?= Url::to('index.php?r=gallery') ?>">
                 <i class="bi bi-chat-left-quote"></i>
-                <span>Gallery Issues</span>
+                <span>Gallery</span>
             </a>
         </li><!-- End Gallery Page Nav -->
 
