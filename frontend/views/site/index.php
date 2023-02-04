@@ -1177,18 +1177,12 @@ $this->title = 'My Yii Application';
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="member">
                         <div class="member-img">
-                            <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
+                            <img src="../../common/static/images/team/lyx.jpg" class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
-                            <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
+                            <h4>刘宇轩</h4>
+                            <span>组长 · 2012677</span>
+                            <p>负责团队的分工协调和进度把控，完成前后台模板的合并和微调工作，前后台新闻模块的实现，新闻筛选搜索</p>
                         </div>
                     </div>
                 </div>
@@ -1196,17 +1190,11 @@ $this->title = 'My Yii Application';
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="member">
                         <div class="member-img">
-                            <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
+                            <img src="../../common/static/images/team/zjk.jpg" class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
-                            <h4>Sarah Jhonson</h4>
-                            <span>Product Manager</span>
+                            <h4>赵健坤</h4>
+                            <span>组员 · 2010535</span>
                             <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
                         </div>
                     </div>
@@ -1215,18 +1203,12 @@ $this->title = 'My Yii Application';
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                     <div class="member">
                         <div class="member-img">
-                            <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
+                            <img src="../../common/static/images/team/zxp.jpg" class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
-                            <h4>William Anderson</h4>
-                            <span>CTO</span>
-                            <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
+                            <h4>郑向鹏</h4>
+                            <span>组员 · 2013649</span>
+                            <p>负责完成了前台的各国领导人态度、俄乌战争相关图片展示、影响物价展示和后台的gallery表管理price表管理</p>
                         </div>
                     </div>
                 </div>
@@ -1234,18 +1216,12 @@ $this->title = 'My Yii Application';
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
                     <div class="member">
                         <div class="member-img">
-                            <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
+                            <img src="../../common/static/images/team/bd.jpg" class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
-                            <h4>Amanda Jepson</h4>
-                            <span>Accountant</span>
-                            <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.</p>
+                            <h4>边笛</h4>
+                            <span>组员 · 2012668</span>
+                            <p>负责完成了前台与后台的用户登录、前台的用户注册以及后台的用户表User管理。</p>
                         </div>
                     </div>
                 </div>

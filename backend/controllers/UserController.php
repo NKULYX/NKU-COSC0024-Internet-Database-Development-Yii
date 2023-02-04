@@ -73,6 +73,7 @@ class UserController extends Controller
         {
             $model->username = Yii::$app->request->post('username');
             $model->email = Yii::$app->request->post('email');
+            $model->purview = Yii::$app->request->post('purview');
             $model->setPassword(Yii::$app->request->post('password'));
             $model->generateAuthKey();
             $model->generateEmailVerificationToken();
@@ -103,6 +104,29 @@ class UserController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        return $this->render('update', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Updates an existing User model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionUpdatepurview($id)
+    {
+        $this->layout = 'backend_layout';
+        $model = $this->findModel($id);
+        
+        if(Yii::$app->request->post('is_update'))
+        {
+            $model->purview = Yii::$app->request->post('purview');
+            $model->save();
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
         return $this->render('update', [
             'model' => $model,
         ]);

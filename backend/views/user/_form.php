@@ -28,10 +28,22 @@ use backend\models\SignupForm;
                         <label for="inputText" class="col-form-label">邮箱</label>
                         <input type="email" class="form-control" name="email" value="<?=$model->email?>">
                     </div>
+                    
                     <div class="col-md-4">
                         <label for="inputText" class="col-form-label">密码</label>
                         <input type="password" class="form-control" name="password">
                     </div>
+                    <div class="col-md-4">
+                        <label for="inputText" class="col-form-label">权限</label>
+                        <div class="form-check" style="padding-left: 5em;">
+                            <input id="administrator" class="form-check-input" name="purview" type="radio" value="1">
+                            <label for="administrator" class="form-check-label">管理员</label>
+                        </div>
+                        <div class="form-check" style="padding-left: 5em;">
+                            <input id="common_user" class="form-check-input" name="purview" type="radio" checked="checked" value="0">
+                            <label for="common_user" class="form-check-label">普通用户</label>
+                        </div>
+                    </div> 
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-10">
@@ -51,15 +63,37 @@ use backend\models\SignupForm;
                         <div class="col-md-4">
                             <label for="inputText" class="col-form-label">邮箱</label>
                             <input type="email" class="form-control" name="email" value="<?=$model->email?>" readonly>
-                        </div>
+                        </div>                    
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-10">
-                                <button type="submit" class="btn btn-primary">更新用户名</button>
+                                <button type="submit" class="btn btn-primary">更改用户信息</button>
                         </div>
                     </div>  
                 <?= Html::endForm() ?>  
 
+                <?= Html::beginForm('@web/index.php?r=user/updatepurview' . '&id=' . $model->id, 'post',['enctype' => 'multipart/form-data']) ?>
+                    <input type="hidden" name="is_update" value="true" />
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="inputText" class="col-form-label">权限</label>
+                            <div class="form-check" style="padding-left: 5em;">
+                                <input id="administrator" class="form-check-input" name="purview" type="radio" value="1">
+                                <label for="administrator" class="form-check-label">管理员</label>
+                            </div>
+                            <div class="form-check" style="padding-left: 5em;">
+                                <input id="common_user" class="form-check-input" name="purview" type="radio" checked="checked" value="0">
+                                <label for="common_user" class="form-check-label">普通用户</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-10">
+                            <button type="submit" class="btn btn-primary">更改用户权限</button>
+                        </div>
+                    </div>
+                <?= Html::endForm() ?>    
+                
                 <?= Html::beginForm('@web/index.php?r=user/updatepassword' . '&id=' . $model->id, 'post',['enctype' => 'multipart/form-data']) ?>
                     <input type="hidden" name="is_update" value="true" />
                     <div class="row mb-3">
@@ -70,10 +104,10 @@ use backend\models\SignupForm;
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-10">
-                            <button type="submit" class="btn btn-primary">更新用户密码</button>
+                            <button type="submit" class="btn btn-primary">重置用户密码</button>
                         </div>
                     </div>
-                <?= Html::endForm() ?>                
+                <?= Html::endForm() ?>
                 
             <?php endif;?>
         </div>

@@ -128,14 +128,6 @@ AppAsset::register($this);
             <a class="nav-link collapsed"  href="<?= Url::to('index.php?r=user') ?>">
                 <i class="bi bi-person"></i><span>Users</span>
             </a>
-            <ul id="users-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="<?= Url::to('index.php?r=user') ?>">
-                        <i class="bi bi-circle"></i>
-                        <span>Users</span>
-                    </a>
-                </li>
-            </ul>
         </li><!-- End Users Nav -->
 
         <li class="nav-item">
