@@ -32,45 +32,30 @@ AppAsset::register($this);
         <span>FlexStart</span>
       </a>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="index.php#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.php#about">About</a></li>
-          <li><a class="nav-link scrollto" href="index.php#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="index.php#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="index.php#team">Team</a></li>
-          <li><?= Html::a('News', ['site/show-news-list']) ?></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+        <nav id="navbar" class="navbar">
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-<!--          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>-->
-            <?php  if (Yii::$app->user->isGuest) { ?>
+                <li><a class="nav-link scrollto" href="index.php#hero">Home</a></li>
+                <li><a class="nav-link scrollto" href="index.php#about">About</a></li>
+                <li><a class="nav-link scrollto active" href="index.php#news">News</a></li>
+                <li><a class="nav-link scrollto" href="index.php#gallery">Gallery</a></li>
+                <li><a class="nav-link scrollto" href="index.php#comments">Comments</a></li>
+                <li><a class="nav-link scrollto" href="index.php#pricing">Price</a></li>
+                <li><a class="nav-link scrollto" href="index.php#faq">FAQ</a></li>
+                <li><a class="nav-link scrollto" href="index.php#team">Team</a></li>
+                <!-- biandi -->
+                <!-- <li><a class="getstarted scrollto" href="#about">Login</a></li> -->
+                <?php  if (Yii::$app->user->isGuest) { ?>
 
-                <?= Html::a('Login', ['site/login'],['class'=>'getstarted scrollto']) ?>
+                    <?= Html::a('Login', ['site/login'],['class'=>'getstarted scrollto']) ?>
 
-            <?php } else { ?>
+                <?php } else { ?>
 
-                <li class="nav-link scrollto">
-                    <?= Html::beginForm(['/site/logout'], 'post') ?>
-                    <?= Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')',
-                        ['class' => 'btn',
-                            'style' =>
-                                'display: flex;
+                    <li class="nav-link scrollto">
+                        <?= Html::beginForm(['/site/logout'], 'post') ?>
+                        <?= Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')',
+                            ['class' => 'btn',
+                                'style' =>
+                                    'display: flex;
               align-items: center;
               justify-content: space-between;
               font-family: "Nunito", sans-serif;
@@ -84,14 +69,14 @@ AppAsset::register($this);
               margin-left: 30px;
               border-radius: 4px;
               color: #fff;']) ?>
-                    <!-- <?= Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')',['class' => 'btn-logout']) ?> -->
-                    <?= Html::endForm() ?>
-                </li>
+                        <!-- <?= Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')',['class' => 'btn-logout']) ?> -->
+                        <?= Html::endForm() ?>
+                    </li>
 
-            <?php }  ?>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+                <?php }  ?>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
