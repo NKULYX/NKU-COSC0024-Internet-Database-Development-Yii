@@ -258,6 +258,7 @@ CREATE TABLE `user`  (
   `created_at` int NOT NULL,
   `updated_at` int NOT NULL,
   `verification_token` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `purview` int(2) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `username`(`username` ASC) USING BTREE,
   UNIQUE INDEX `email`(`email` ASC) USING BTREE,
@@ -267,9 +268,9 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'admin', 'dOukCdzkuR_bNC7m5w4MX7dIM8-xpDU0', '$2y$13$qGr496xWJUI3JNCDKWTz1uGLFd3vl2mEwwbv2lDrdhA0UZv68D2k6', NULL, 'admin@gmail.com', 9, 1674014197, 1674014197, 'IIlCzFSOBKAV61Q-pBPVXdiSrcBW2AcB_1674014197');
-INSERT INTO `user` VALUES (2, 'test', '8WxDxmV_G65cMPJin4-bP8DIPhiiHeX3', '$2y$13$qSFtv0a8j9/xdth6lUC9HuYtDOUwNUSxnUWjncto4nrhn/is.ntqO', NULL, 'test@gmail.com', 9, 1674014280, 1674014280, 'uRXxQH0WoMe7BIjWfAr6dariEW_hFwFI_1674014280');
-INSERT INTO `user` VALUES (3, 'user', 'W0ntFZEWpQd8UBTsSxJD8w119azHHlus', '$2y$13$9g/xDBc31hGcVwAsseVzduJdMW6euHXVxPUA9trrcRY7dlmQUROZ.', NULL, 'user@gmain.com', 10, 1675474822, 1675474822, 'lyIN5fYN65AlTk_5valgZI-PcPLjUK0a_1675474822');
+INSERT INTO `user` VALUES (1, 'admin', 'dOukCdzkuR_bNC7m5w4MX7dIM8-xpDU0', '$2y$13$qGr496xWJUI3JNCDKWTz1uGLFd3vl2mEwwbv2lDrdhA0UZv68D2k6', NULL, 'admin@gmail.com', 9, 1674014197, 1674014197, 'IIlCzFSOBKAV61Q-pBPVXdiSrcBW2AcB_1674014197', 0);
+INSERT INTO `user` VALUES (2, 'test', '8WxDxmV_G65cMPJin4-bP8DIPhiiHeX3', '$2y$13$qSFtv0a8j9/xdth6lUC9HuYtDOUwNUSxnUWjncto4nrhn/is.ntqO', NULL, 'test@gmail.com', 9, 1674014280, 1674014280, 'uRXxQH0WoMe7BIjWfAr6dariEW_hFwFI_1674014280', 0);
+INSERT INTO `user` VALUES (3, 'user', 'W0ntFZEWpQd8UBTsSxJD8w119azHHlus', '$2y$13$9g/xDBc31hGcVwAsseVzduJdMW6euHXVxPUA9trrcRY7dlmQUROZ.', NULL, 'user@gmain.com', 10, 1675474822, 1675474822, 'lyIN5fYN65AlTk_5valgZI-PcPLjUK0a_1675474822', 1);
 
 -- ----------------------------
 -- Table structure for visits
