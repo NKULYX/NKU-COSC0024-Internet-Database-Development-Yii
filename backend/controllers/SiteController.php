@@ -6,7 +6,6 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
-use common\models\BackendLoginForm;
 
 /**
  * Site controller
@@ -83,7 +82,7 @@ class SiteController extends Controller
            return $this->goHome();
        }
 
-       $model = new BackendLoginForm();
+       $model = new LoginForm();
        if ($model->load(Yii::$app->request->post()) && $model->login()) 
        {
            // $this->layout = 'backend_layout';
