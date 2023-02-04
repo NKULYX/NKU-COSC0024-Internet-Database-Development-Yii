@@ -21,16 +21,12 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
-  * @property integer $purview
  */
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_INACTIVE = 9;
     const STATUS_ACTIVE = 10;
-
-    const COMMON_USER = 0;
-    const ADMINISTRATOR = 1;
 
 
     /**
@@ -161,14 +157,6 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->getAuthKey() === $authKey;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function isAdministrator()
-    {
-        return $this->purview === self::ADMINISTRATOR;
-    }
-    
     /**
      * Validates password
      *
