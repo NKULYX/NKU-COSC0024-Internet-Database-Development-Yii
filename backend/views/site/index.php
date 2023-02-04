@@ -243,18 +243,19 @@ $this->title = 'My Yii Application';
                                 <?php endif?>
 
                                 <div class="activity-content">
-                                    <?=$userName?>
+                                    <a href="<?="index.php?r=user"?>" class="fw-bold text-muted"><?=$userName?></a>
                                     <?php if($activity->operation==='create'):?>
-                                        <a href="#" class="fw-bold text-success">created</a>
+                                        <a class="fw-bold text-success">created</a>
                                     <?php elseif($activity->operation==='delete'):?>
-                                        <a href="#" class="fw-bold text-danger">deleted</a>
+                                        <a class="fw-bold text-danger">deleted</a>
                                     <?php elseif($activity->operation==='update'):?>
-                                        <a href="#" class="fw-bold text-primary">updated</a>
+                                        <a class="fw-bold text-primary">updated</a>
                                     <?php else:?>
-                                        <a href="#" class="fw-bold text-info">modified</a>
+                                        <a class="fw-bold text-info">modified</a>
                                     <?php endif?>
                                     in
-                                    <?=$activity->table_name?>
+                                    <?php $herf = str_replace('_','-', $activity->table_name);?>
+                                    <a href="<?="index.php?r=" . $herf ?>" class="fw-bold text-dark"><?=$activity->table_name?></a>
                                 </div>
                             </div><!-- End activity item-->
                         <?php endfor?>
