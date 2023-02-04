@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use Cassandra\Date;
+use common\models\HistoricalViews;
 use common\models\News;
 use common\models\NewsComment;
 use frontend\models\NewsListUtil;
@@ -284,6 +286,15 @@ class SiteController extends Controller
         $model = News::find()->where(['news_id' => $news_id])->one();
         ++$model->news_views;
         $model->save();
+        $current_date = date('Y-m-d');
+        $historical_view = HistoricalViews::find()->where(['time' => $current_date])->one();
+        if($historical_view === null) {
+            $historical_view = new HistoricalViews();
+            $historical_view->time = $current_date;
+            $historical_view->count = 0;
+        }
+        ++$historical_view->count;
+        $historical_view->save();
         return $this->render('newsContent',[
             'model' => $model
         ]);

@@ -271,4 +271,29 @@ INSERT INTO `user` VALUES (1, 'admin', 'dOukCdzkuR_bNC7m5w4MX7dIM8-xpDU0', '$2y$
 INSERT INTO `user` VALUES (2, 'test', '8WxDxmV_G65cMPJin4-bP8DIPhiiHeX3', '$2y$13$qSFtv0a8j9/xdth6lUC9HuYtDOUwNUSxnUWjncto4nrhn/is.ntqO', NULL, 'test@gmail.com', 9, 1674014280, 1674014280, 'uRXxQH0WoMe7BIjWfAr6dariEW_hFwFI_1674014280');
 INSERT INTO `user` VALUES (3, 'user', 'W0ntFZEWpQd8UBTsSxJD8w119azHHlus', '$2y$13$9g/xDBc31hGcVwAsseVzduJdMW6euHXVxPUA9trrcRY7dlmQUROZ.', NULL, 'user@gmain.com', 10, 1675474822, 1675474822, 'lyIN5fYN65AlTk_5valgZI-PcPLjUK0a_1675474822');
 
+-- ----------------------------
+-- Table structure for visits
+-- ----------------------------
+DROP TABLE IF EXISTS `history_views`;
+CREATE TABLE `history_views` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `time` date DEFAULT NULL,
+  `count` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 0 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of historical_views
+-- ----------------------------
+INSERT INTO `historical_views` VALUES (1, '2023-01-26', 122);
+INSERT INTO `historical_views` VALUES (2, '2023-01-27', 157);
+INSERT INTO `historical_views` VALUES (3, '2023-01-28', 223);
+INSERT INTO `historical_views` VALUES (4, '2023-01-29', 91);
+INSERT INTO `historical_views` VALUES (5, '2023-01-30', 332);
+INSERT INTO `historical_views` VALUES (6, '2023-01-31', 242);
+INSERT INTO `historical_views` VALUES (7, '2023-02-01', 221);
+INSERT INTO `historical_views` VALUES (8, '2023-02-02', 145);
+INSERT INTO `historical_views` VALUES (9, '2023-02-03', 311);
+INSERT INTO `historical_views` VALUES (10, '2023-02-04', 425);
+
 SET FOREIGN_KEY_CHECKS = 1;
