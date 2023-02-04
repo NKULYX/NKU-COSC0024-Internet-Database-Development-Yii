@@ -2236,7 +2236,7 @@ textarea.form-control-lg {
 .form-check {
   display: block;
   min-height: 1.5rem;
-  padding-right: 1.5em;
+  padding-right: 5em;
   margin-bottom: 0.125rem;
 }
 .form-check .form-check-input {

@@ -647,7 +647,7 @@ section {
 }
 
 .counts .count-box span {
-  font-size: 24px;
+  font-size: 36px;
   display: block;
   font-weight: 600;
   color: #0b198f;
@@ -657,7 +657,7 @@ section {
   padding: 0;
   margin: 0;
   font-family: "Nunito", sans-serif;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 /*--------------------------------------------------------------
@@ -2420,3 +2420,4 @@ section {
   font-size: 13px;
   color: #012970;
 }
+
