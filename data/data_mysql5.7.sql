@@ -277,8 +277,8 @@ INSERT INTO `user` VALUES (4, 'root', '-MbGxKSd7MVMehBj_JEZtKBVovo_jGm_', '$2y$1
 -- ----------------------------
 -- Table structure for visits
 -- ----------------------------
-DROP TABLE IF EXISTS `history_views`;
-CREATE TABLE `history_views` (
+DROP TABLE IF EXISTS `historical_views`;
+CREATE TABLE `historical_views` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `time` date DEFAULT NULL,
   `count` int(11) DEFAULT NULL,
