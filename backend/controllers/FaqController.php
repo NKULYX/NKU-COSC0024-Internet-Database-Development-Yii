@@ -26,6 +26,10 @@ class FaqController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
                         'allow' => false,
                         'roles' => ['?'],
                     ],
