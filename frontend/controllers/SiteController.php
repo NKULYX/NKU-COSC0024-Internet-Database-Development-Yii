@@ -338,7 +338,7 @@ class SiteController extends Controller
 
     public function actionShowGalleryDetails($gallery_id)
     {
-        $this->layout = 'main';
+        $this->layout = 'gallery_layout';
         $model = Gallery::findIdentity($gallery_id);
         return $this->render('GalleryDetails',[
             'model' => $model
@@ -347,7 +347,7 @@ class SiteController extends Controller
 
     public function actionShowPriceDetails($price_id)
     {
-        $this->layout = 'main';
+        $this->layout = 'price_layout';
         $model = Price::findIdentity($price_id);
         return $this->render('PriceDetails',[
             'model' => $model
