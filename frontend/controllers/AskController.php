@@ -13,9 +13,10 @@ class AskController extends Controller
 {
     public function actionAsk()
     {
+        \yii\helpers\Url::remember();
         $model = new Faq();
         // if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-        //     Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
+            // Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
         //     return $this->goHome();
         // }
 
@@ -23,9 +24,11 @@ class AskController extends Controller
         //     'model' => $model,
         // ]);
         $model->question = Yii::$app->request->post('question');
-        // var_dump($model->question);
         $model->save();
-        // echo('Submitted successfully! Thank you for your question! We will reply soon.');
-        $this->goHome();
+        Yii::$app->session->setFlash('success', 'Thank you for your question! We will reply soon.');
+        $this->redirect(Yii::$app->request->referrer);
+        // $this->render(Yii::$app->session->getViewPath(), [
+        //     'model' => $model,
+        // ]);
     }
 }
