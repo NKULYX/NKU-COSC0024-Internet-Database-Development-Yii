@@ -329,11 +329,16 @@ class SiteController extends Controller
         $model->comment_content = Yii::$app->request->post('comment');
         date_default_timezone_set('PRC');
         $model->comment_time = date('Y-m-d H:i:s');
-        $model->save();
-        $news_content = News::find()->where(['news_id' => Yii::$app->request->post('news_id')])->one();
-        return $this->render('newsContent',[
-            'model' => $news_content
-        ]);
+        if ($model->comment_user == '') {
+            return $this->redirect('index.php?r=site%2Flogin');
+        }else{
+            $model->save();
+            // $news_content = News::find()->where(['news_id' => Yii::$app->request->post('news_id')])->one();
+            // return $this->render('newsContent',[
+            //     'model' => $news_content
+            // ]);
+            return $this->redirect('index.php?r=site%2Fshow-news-content&news_id=' . Yii::$app->request->post('news_id'));
+        }
     }
 
     public function actionShowGalleryDetails($gallery_id)

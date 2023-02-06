@@ -36,6 +36,10 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['?'],
                     ],
+                    [
+                        'actions' => ['lyx', 'zjk', 'zxp', 'bd'],
+                        'allow' => true,
+                    ],
                 ],
             ],
             'verbs' => [
@@ -108,5 +112,29 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionLyx()
+    {
+        $this->layout = 'backend_layout';
+        return $this->render('/site/lyx');
+    }
+
+    public function actionZjk()
+    {
+        $this->layout = 'backend_layout';
+        return $this->render('/site/zjk');
+    }
+
+    public function actionZxp()
+    {
+        $this->layout = 'backend_layout';
+        return $this->render('/site/zxp');
+    }
+
+    public function actionBd()
+    {
+        $this->layout = 'backend_layout';
+        return $this->render('/site/bd');
     }
 }

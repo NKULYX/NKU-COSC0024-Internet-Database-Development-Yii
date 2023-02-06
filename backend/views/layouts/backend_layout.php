@@ -42,7 +42,7 @@ AppAsset::register($this);
     <div class="d-flex align-items-center justify-content-between">
         <a href="index.php" class="logo d-flex align-items-center">
             <img src="../web/statics/assets/img/logo.png" alt="">
-            <span class="d-none d-lg-block">NiceAdmin</span>
+            <span class="d-none d-lg-block">RvU-Admin</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -51,7 +51,7 @@ AppAsset::register($this);
         <ul class="d-flex align-items-center">
             <li class="nav-item dropdown pe-3">
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src=<?= "../../common/static/images/users/default" . Yii::$app->user->id % 4 + 1 .".png"?> alt="Profile" class="rounded-circle">
+                    <img src=<?= "../../common/static/images/users/default" . (Yii::$app->user->id % 4 + 1) .".png"?> alt="Profile" class="rounded-circle">
 
                     <?php if (Yii::$app->user->isGuest) { ?>
                         <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
@@ -64,7 +64,7 @@ AppAsset::register($this);
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="nav-profile dropdown-header">
-                        <img src=<?= "../../common/static/images/users/default" . Yii::$app->user->id % 4 + 1 .".png"?> alt="Profile" class="rounded-circle">
+                        <img src=<?= "../../common/static/images/users/default" . (Yii::$app->user->id % 4 + 1) .".png"?> alt="Profile" class="rounded-circle">
                         <?php if (! Yii::$app->user->isGuest) { ?>
                             <h6>
                                 <?= Yii::$app->user->identity->username ?>
@@ -177,10 +177,31 @@ AppAsset::register($this);
         <li class="nav-heading">Personal</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.html">
-                <i class="bi bi-person-lines-fill"></i>
-                <span>Profile</span>
+            <a class="nav-link collapsed" data-bs-target="#assn-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-journal-text"></i><span>Assignments</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
+            <ul id="assn-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="<?= Url::to('index.php?r=site%2Flyx') ?>">
+                        <i class="bi bi-circle"></i><span>刘宇轩</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= Url::to('index.php?r=site%2Fzjk') ?>">
+                        <i class="bi bi-circle"></i><span>赵健坤</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= Url::to('index.php?r=site%2Fzxp') ?>">
+                        <i class="bi bi-circle"></i><span>郑向鹏</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= Url::to('index.php?r=site%2Fbd') ?>">
+                        <i class="bi bi-circle"></i><span>边&nbsp&nbsp&nbsp&nbsp笛</span>
+                    </a>
+                </li>
+            </ul>
         </li><!-- End Profile Page Nav -->
 
 
@@ -195,14 +216,14 @@ AppAsset::register($this);
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
     <div class="copyright">
-        &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Yuxuan's Group</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Template from<a href="https://bootstrapmade.com/">BootstrapMade</a>. Powered by <a href="https://www.yiichina.com/">Yii2</a>
     </div>
 </footer><!-- End Footer -->
 
