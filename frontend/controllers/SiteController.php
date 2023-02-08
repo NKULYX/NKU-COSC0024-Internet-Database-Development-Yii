@@ -333,10 +333,6 @@ class SiteController extends Controller
             return $this->redirect('index.php?r=site%2Flogin');
         }else{
             $model->save();
-            // $news_content = News::find()->where(['news_id' => Yii::$app->request->post('news_id')])->one();
-            // return $this->render('newsContent',[
-            //     'model' => $news_content
-            // ]);
             return $this->redirect('index.php?r=site%2Fshow-news-content&news_id=' . Yii::$app->request->post('news_id'));
         }
     }

@@ -20,7 +20,7 @@ $this->title = 'My Yii Application';
             <div class="comment-img"><img src="../../common/static/images/users/default1.png" alt=""></div>
             <div>
                 <?php $user = $comment->getCommentUser()->one(); ?>
-                <h5 style="font-size: 20px"><a><?=$user->username?></a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                <h5 style="font-size: 20px"><a><?=$user->username?></a></h5>
                 <time style="font-size: 16px"><?=$comment->comment_time?></time>
                 <p style="font-size: 15px">
                     <?=$comment->comment_content?>
