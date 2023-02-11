@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 边笛.
+ * 用户编辑表单
+ */
+
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use backend\models\SignupForm;

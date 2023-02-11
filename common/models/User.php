@@ -1,6 +1,12 @@
 <?php
 namespace common\models;
 
+/**
+ * Team: 明天上线队
+ * Created by 边笛.
+ * 用户表
+ */
+
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;

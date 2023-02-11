@@ -1,6 +1,13 @@
 <?php
 namespace common\models;
 
+
+/**
+ * Team: 明天上线队
+ * Created by 边笛.
+ * 用户后台登录模型
+ */
+
 use Yii;
 use yii\base\Model;
 
