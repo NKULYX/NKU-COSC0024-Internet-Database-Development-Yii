@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 郑向鹏.
+ * 后台物价编辑页面
+ */
+
 use yii\helpers\Html;
 use common\models\Price;
 

@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 郑向鹏.
+ * 武器详情布局文件
+ */
+
 /* @var $this View */
 /* @var $content string */
 

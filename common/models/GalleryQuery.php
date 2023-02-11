@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 郑向鹏.
+ * 图册查询接口
+ */
+
 namespace common\models;
 
 /**

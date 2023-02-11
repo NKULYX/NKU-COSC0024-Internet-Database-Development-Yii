@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Team: 明天上线队
+ * Created by 刘宇轩、边笛、郑向鹏.
+ * 页面路由
+ */
+
 namespace frontend\controllers;
 
 use Cassandra\Date;
@@ -362,6 +369,11 @@ class SiteController extends Controller
         }
     }
 
+    /**
+     * 展示武器详情页
+     *
+     * @return mixed
+     */
     public function actionShowGalleryDetails($gallery_id)
     {
         $this->layout = 'gallery_layout';
@@ -371,6 +383,11 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * 展示价格分析页
+     *
+     * @return mixed
+     */
     public function actionShowPriceDetails($price_id)
     {
         $this->layout = 'price_layout';

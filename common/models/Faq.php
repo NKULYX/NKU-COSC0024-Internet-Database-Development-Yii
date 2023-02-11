@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 赵建坤.
+ * 问答表
+ */
+
 namespace common\models;
 
 use Yii;
