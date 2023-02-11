@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 刘宇轩.
+ * 历史浏览量统计查询接口
+ */
+
 namespace common\models;
 
 /**

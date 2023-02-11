@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Team: 明天上线队
+ * Created by 刘宇轩.
+ * 前端主页
+ */
+
 use common\models\Faq;
 
 /* @var $this yii\web\View */

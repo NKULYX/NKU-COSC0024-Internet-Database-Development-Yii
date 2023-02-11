@@ -269,6 +269,11 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * 展示新闻列表
+     *
+     * @return mixed
+     */
     public function actionShowNewsList()
     {
         $this->layout = 'news_layout';
@@ -280,6 +285,11 @@ class SiteController extends Controller
         return $this->render('newsList');
     }
 
+    /**
+     * 展示新闻内容
+     *
+     * @return mixed
+     */
     public function actionShowNewsContent($news_id)
     {
         $this->layout = 'news_layout';
@@ -300,6 +310,11 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * 展示指定新闻页
+     *
+     * @return mixed
+     */
     public function actionShowTargetNewsPage($news_page)
     {
         $this->layout = 'news_layout';
@@ -313,6 +328,11 @@ class SiteController extends Controller
         return $this->render('newsList');
     }
 
+    /**
+     * 筛选新闻来源分类
+     *
+     * @return mixed
+     */
     public function actionFilterNewsSource($news_source)
     {
         $this->layout = 'news_layout';
@@ -320,6 +340,11 @@ class SiteController extends Controller
         return $this->render('newsList');
     }
 
+    /**
+     * 增加新闻评论
+     *
+     * @return mixed
+     */
     public function actionAddNewsComment()
     {
         $this->layout = 'news_layout';

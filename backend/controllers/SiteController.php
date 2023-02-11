@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Team: 明天上线队
+ * Created by 刘宇轩.
+ * 页面路由
+ */
+
 namespace backend\controllers;
 
 use Yii;

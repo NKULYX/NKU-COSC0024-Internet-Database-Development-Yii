@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 刘宇轩.
+ * 新闻编辑表单
+ */
+
 use yii\helpers\Html;
 use common\models\NewsSource;
 

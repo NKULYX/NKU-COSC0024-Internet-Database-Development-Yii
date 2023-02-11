@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 刘宇轩.
+ * 新闻表
+ */
+
 namespace common\models;
 
 use Yii;

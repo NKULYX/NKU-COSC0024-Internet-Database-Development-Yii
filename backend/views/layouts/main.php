@@ -1,5 +1,10 @@
-
 <?php
+
+/**
+ * Team: 明天上线队
+ * Created by 刘宇轩.
+ * 后台登录布局模板文件
+ */
 
 /* @var $this \yii\web\View */
 /* @var $content string */

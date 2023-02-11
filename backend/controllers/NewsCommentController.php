@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 刘宇轩.
+ * 新闻评论CRUD接口
+ */
+
 namespace backend\controllers;
 
 use backend\models\RecordUtil;

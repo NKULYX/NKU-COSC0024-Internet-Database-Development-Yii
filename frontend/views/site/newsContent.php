@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 刘宇轩.
+ * 新闻内容展示模块
+ */
+
 /* @var $this yii\web\View */
 /* @var $model News */
 

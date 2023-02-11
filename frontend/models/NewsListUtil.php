@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 刘宇轩.
+ * 新闻列表帮助类
+ */
+
 namespace frontend\models;
 
 use common\models\News;
@@ -12,6 +18,11 @@ class NewsListUtil
     public static $current_news_page;
     private static $news_list;
 
+    /**
+     * 用于选择初始化方式
+     * @param $option
+     * @return void
+     */
     public static function init($option = [])
     {
         self::$news_list = News::find()->orderBy('news_date DESC')->all();
@@ -32,11 +43,20 @@ class NewsListUtil
         self::$current_news_page = 0;
     }
 
+    /**
+     * 获取初始化后的新闻列表
+     * @return mixed
+     */
     public static function getNewsList()
     {
         return self::$news_list;
     }
 
+    /**
+     * 按照新闻来源进行新闻筛选
+     * @param $news_source 新闻来源
+     * @return void
+     */
     public static function filterNewsSource($news_source)
     {
         self::$news_list = News::find()->orderBy('news_date DESC')->where(['news_source' => $news_source])->all();

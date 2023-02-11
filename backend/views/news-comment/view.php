@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 刘宇轩.
+ * 后台新闻评论预览页面
+ */
+
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
