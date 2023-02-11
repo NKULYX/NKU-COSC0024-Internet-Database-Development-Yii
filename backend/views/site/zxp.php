@@ -3,7 +3,7 @@
 
 <body>
 <div class="pagetitle">
-    <h1>Individual Assignments - Yuxuan LIU</h1>
+    <h1>Individual Assignments - Xiangpeng Zheng</h1>
 </div><!-- End Page Title -->
 
 <section class="section profile">
@@ -15,7 +15,7 @@
                         <h5 class="card-title">个人作业1-Web前端初探</h5>
                         <div class="row">
                             <div class="col-lg-3 col-md-4 label "><h2>下载地址</h2></div>
-                            <div class="col-lg-9 col-md-8"><h2><a href="../../data/personal/zxp/作业1(2013649_郑向鹏).zip" download="作业1(2013649_郑向鹏).zip">作业1(2012677_刘宇轩).zip</a></h2></div>
+                            <div class="col-lg-9 col-md-8"><h2><a href="../../data/personal/zxp/作业1(2013649_郑向鹏).zip" download="作业1(2013649_郑向鹏).zip">作业1(2013649_郑向鹏).zip</a></h2></div>
                         </div>
 
                         <h5 class="card-title">个人作业2-Web前端设计</h5>
