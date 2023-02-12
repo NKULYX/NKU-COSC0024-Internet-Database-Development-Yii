@@ -14,6 +14,8 @@
  Date: 04/02/2023 12:33:49
 */
 
+USE yii2advanced;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
