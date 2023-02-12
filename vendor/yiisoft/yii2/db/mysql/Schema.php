@@ -391,6 +391,7 @@ SQL;
             $constraints = [];
 
             foreach ($rows as $row) {
+                $row = array_change_key_case($row, CASE_LOWER);
                 $constraints[$row['constraint_name']]['referenced_table_name'] = $row['referenced_table_name'];
                 $constraints[$row['constraint_name']]['columns'][$row['column_name']] = $row['referenced_column_name'];
             }
