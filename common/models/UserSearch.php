@@ -2,6 +2,12 @@
 
 namespace common\models;
 
+/**
+ * Team: 明天上线队
+ * Created by 边笛.
+ * 用户搜索接口
+ */
+
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\User;
