@@ -9,6 +9,12 @@
 namespace common\models;
 
 /**
+ * Team: 明天上线队
+ * Created by 边笛.
+ * 用户查询接口
+ */
+
+/**
  * This is the ActiveQuery class for [[User]].
  *
  * @see User

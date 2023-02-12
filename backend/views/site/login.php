@@ -1,5 +1,11 @@
 <?php
 
+
+/**
+ * Team: 明天上线队
+ * Created by 边笛.
+ * 后台登录页面
+
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
@@ -33,48 +39,28 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <p class="text-center small">Enter your username & password to login</p>
                             </div>
 
-                            <!-- <form class="row g-3 needs-validation" novalidate> -->
                             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
                                 <div class="col-12">
-                                    <!-- <label for="yourUsername" class="form-label">Username</label> -->
                                     <div class="input-group has-validation">
-                                        <!-- <span class="input-group-text" id="inputGroupPrepend">@</span> -->
                                         <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-                                        <!-- <input type="text" name="username" class="form-control" id="yourUsername" required> -->
-                                        <!-- <div class="invalid-feedback">Please enter your username.</div> -->
                                     </div>
                                 </div>
 
                                 <div class="col-12">
-                                    <!-- <label for="yourPassword" class="form-label">Password</label> -->
-                                    <!-- <input type="password" name="password" class="form-control" id="yourPassword" required> -->
-                                    <!-- <div class="invalid-feedback">Please enter your password!</div> -->
                                     <?= $form->field($model, 'password')->passwordInput() ?>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-check">
-                                        <!-- <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe"> -->
-                                        <!-- <label class="form-check-label" for="rememberMe">Remember me</label> -->
                                         <?= $form->field($model, 'rememberMe')->checkbox() ?>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <!-- <button class="btn btn-primary w-100" type="submit">Login</button> -->
                                     <div class="form-group">
                                         <?= Html::submitButton('Login', ['class' => 'btn btn-primary w-100 ', 'name' => 'login-button']) ?>
                                     </div>                                    
                                 </div>
-
-                                <!-- <div class="col-12"> -->
-                                    <!-- <p class="small mb-0"> -->
-                                        <!-- Don't have account?  -->
-                                        <!-- <a href="pages-register.html">Create an account</a> -->
-                                    <!-- </p> -->
-                                <!-- </div> -->
-
-                            <!-- </form> -->
                             <?php ActiveForm::end(); ?>
                         </div>
                     </div>
