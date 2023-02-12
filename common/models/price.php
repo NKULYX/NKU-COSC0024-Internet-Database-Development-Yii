@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 郑向鹏.
+ * 物价表
+ */
+
 namespace common\models;
 
 use Yii;

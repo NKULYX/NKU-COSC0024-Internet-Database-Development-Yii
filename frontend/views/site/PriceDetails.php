@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 郑向鹏.
+ * 价格分析展示模块
+ */
+
 /* @var $this \yii\web\View */
 /* @var $model Price */
 

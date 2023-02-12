@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Team: 明天上线队
+ * Created by 边笛.
+ * 后台登录表
+ */
+
 namespace common\models;
 
 use Yii;

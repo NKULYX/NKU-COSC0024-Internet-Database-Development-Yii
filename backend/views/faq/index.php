@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 赵建坤.
+ * 后台问答管理主页
+ */
+
 use yii\helpers\Html;
 use yii\grid\GridView;
 

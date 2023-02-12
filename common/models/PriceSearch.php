@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Team: 明天上线队
+ * Created by 郑向鹏.
+ * 物价搜索接口
+ */
+
 namespace common\models;
 
 use yii\base\Model;

@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Team: 明天上线队
+ * Created by 赵建坤.
+ * 问答类
+ */
+
 namespace frontend\models;
 
 use Yii;
