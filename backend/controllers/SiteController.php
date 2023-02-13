@@ -44,7 +44,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['lyx', 'zjk', 'zxp', 'bd'],
+                        'actions' => ['lyx', 'zjk', 'zxp', 'bd', 'team'],
                         'allow' => true,
                     ],
                 ],
@@ -143,5 +143,11 @@ class SiteController extends Controller
     {
         $this->layout = 'backend_layout';
         return $this->render('/site/bd');
+    }
+
+    public function actionTeam()
+    {
+        $this->layout = 'backend_layout';
+        return $this->render('/site/team');
     }
 }

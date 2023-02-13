@@ -188,6 +188,11 @@ AppAsset::register($this);
             </a>
             <ul id="assn-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
+                    <a href="<?= Url::to('index.php?r=site%2Fteam') ?>">
+                        <i class="bi bi-circle"></i><span>团队作业</span>
+                    </a>
+                </li>
+                <li>
                     <a href="<?= Url::to('index.php?r=site%2Flyx') ?>">
                         <i class="bi bi-circle"></i><span>刘宇轩</span>
                     </a>
