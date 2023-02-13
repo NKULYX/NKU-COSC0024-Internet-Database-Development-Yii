@@ -793,6 +793,7 @@ $this->title = 'My Yii Application';
 
     </section><!-- End Testimonials Section -->
 
+    
     <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
 
@@ -803,7 +804,7 @@ $this->title = 'My Yii Application';
             </header>
 
             <div class="row gy-4" data-aos="fade-left">
-
+                
                 <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                     <div class="box">
               <span class="featured">
@@ -838,7 +839,7 @@ $this->title = 'My Yii Application';
                             echo $t_price
                             ?>
                             <span>
-                      <?php
+                                <?php
                       $t_id = 1;
                       $t_item = Price::findIdentity($t_id);
                       $t_measurement = $t_item -> getMeasurement();
@@ -846,7 +847,7 @@ $this->title = 'My Yii Application';
                       echo $t_measure
                       ?>
                   </span>
-                        </div>
+                </div>
                         <?php
                         $t_id = 1;
                         $t_item = Price::findIdentity($t_id);
@@ -855,23 +856,23 @@ $this->title = 'My Yii Application';
                         echo "<img src=$n_path class='img-fluid' alt=''>"
                         ?>
                         <h3>
-                        <ul></ul>
-                        <li><?= Html::a('More Details', ['site/show-price-details','price_id' => 1]) ?></li>
+                            <ul></ul>
+                            <li><?= Html::a('More Details', ['site/show-price-details','price_id' => 1]) ?></li>
                         </h3>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
                     <div class="box">
-              <span class="featured">
-                  <?php
+                        <span class="featured">
+                            <?php
                   $t_id = 2;
                   $t_item = Price::findIdentity($t_id);
                   $t_class = $t_item -> getClass();
                   echo $t_class
                   ?>
               </span>
-                        <h3 style="color: #65c600;">
+              <h3 style="color: #65c600;">
                             <?php
                             $t_id = 2;
                             $t_item = Price::findIdentity($t_id);
@@ -895,7 +896,7 @@ $this->title = 'My Yii Application';
                             echo $t_price
                             ?>
                             <span>
-                      <?php
+                                <?php
                       $t_id = 2;
                       $t_item = Price::findIdentity($t_id);
                       $t_measurement = $t_item -> getMeasurement();
@@ -912,12 +913,12 @@ $this->title = 'My Yii Application';
                         echo "<img src=$n_path class='img-fluid' alt=''>"
                         ?>
                         <h3>
-                        <ul></ul>
-                        <li><?= Html::a('More Details', ['site/show-price-details','price_id' => 2]) ?></li>
+                            <ul></ul>
+                            <li><?= Html::a('More Details', ['site/show-price-details','price_id' => 2]) ?></li>
                         </h3>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
                     <div class="box">
               <span class="featured">
@@ -952,7 +953,7 @@ $this->title = 'My Yii Application';
                             echo $t_price
                             ?>
                             <span>
-                      <?php
+                                <?php
                       $t_id = 3;
                       $t_item = Price::findIdentity($t_id);
                       $t_measurement = $t_item -> getMeasurement();
@@ -960,7 +961,7 @@ $this->title = 'My Yii Application';
                       echo $t_measure
                       ?>
                   </span>
-                        </div>
+                </div>
                         <?php
                         $t_id = 3;
                         $t_item = Price::findIdentity($t_id);
@@ -969,15 +970,15 @@ $this->title = 'My Yii Application';
                         echo "<img src=$n_path class='img-fluid' alt=''>"
                         ?>
                         <h3>
-                        <ul></ul>
+                            <ul></ul>
                         <li><?= Html::a('More Details', ['site/show-price-details','price_id' => 3]) ?></li>
-                        </h3>
-                    </div>
+                    </h3>
                 </div>
-
+                </div>
+                
                 <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
                     <div class="box">
-              <span class="featured">
+                        <span class="featured">
                   <?php
                   $t_id = 4;
                   $t_item = Price::findIdentity($t_id);
@@ -985,7 +986,7 @@ $this->title = 'My Yii Application';
                   echo $t_class
                   ?>
               </span>
-                        <h3 style="color: #ff0071;">
+              <h3 style="color: #ff0071;">
                             <?php
                             $t_id = 4;
                             $t_item = Price::findIdentity($t_id);
@@ -1009,7 +1010,7 @@ $this->title = 'My Yii Application';
                             echo $t_price
                             ?>
                             <span>
-                      <?php
+                                <?php
                       $t_id = 4;
                       $t_item = Price::findIdentity($t_id);
                       $t_measurement = $t_item -> getMeasurement();
@@ -1026,21 +1027,65 @@ $this->title = 'My Yii Application';
                         echo "<img src=$n_path class='img-fluid' alt=''>"
                         ?>
                         <h3>
-                        <ul></ul>
-                        <li><?= Html::a('More Details', ['site/show-price-details','price_id' => 4]) ?></li>
+                            <ul></ul>
+                            <li><?= Html::a('More Details', ['site/show-price-details','price_id' => 4]) ?></li>
                         </h3>
                     </div>
                 </div>
-
+                
             </div>
 
         </div>
-
+        
     </section><!-- End Pricing Section -->
+
+    <!-- ======= Value Section ======= -->
+    <section id="values" class="values">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+            <header class="section-header">
+                <p>实时价格榜单</p>
+            </header>
+            <div class="row">
+                <div class="col-lg-4 mt-4 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                    <div class="box"> 
+                        <img src="http://www.100ppi.com/graph/897-20221115-20230213-W500H300M30R0Y0Cp.png" class="img-fluid" alt="">
+                        <h3><?php
+                        $datas=file_get_contents('https://www.100ppi.com/mprice/detail-3712358.html');
+                        preg_match_all('/<td>\d+<\/td>|<td>\d+\.\d+<\/td>/',$datas,$price);
+                        echo($price[0][4]);
+                        ?>元/吨</h3>
+                        <h4>天然气</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                    <div class="box">
+                        <img src="http://www.100ppi.com/graph/432-20221115-20230213-W500H300M30R0Y0Cp.png" class="img-fluid" alt="">
+                        <h3><?php
+                        $datas=file_get_contents('https://www.100ppi.com/mprice/detail-3712424.html');
+                        preg_match_all('/<td>\d+<\/td>|<td>\d+\.\d+<\/td>/',$datas,$price);
+                        echo($price[0][4]);
+                        ?>元/吨</h3>
+                        <h4>镍</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+                    <div class="box"> 
+                        <img src="https://www.100ppi.com/graph/551-20221115-20230213-W490H300M30R0Y0Cp.png" class="img-fluid" alt="">
+                        <h3><?php
+                        $datas=file_get_contents('https://www.100ppi.com/mprice/detail-3713422.html');
+                        preg_match_all('/<td>\d+<\/td>|<td>\d+\.\d+<\/td>/',$datas,$price);
+                        echo($price[0][4]);
+                        ?>元/吨</h3>
+                        <h4>黄金</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ======= F.A.Q Section ======= -->
     <section id="faq" class="faq">
-
+        
         <div class="container" data-aos="fade-up">
 
             <header class="section-header">
